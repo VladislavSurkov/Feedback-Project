@@ -18,6 +18,7 @@ const App: FC = () => {
           <Route path="/bug" element={<div>bug!!!</div>} />
           <Route path="/feature" element={<div>feature!!!</div>} />
         </Route>
+        <Route path="*" element={<SharedLayout />} />
       </Routes>
     </>
   );
