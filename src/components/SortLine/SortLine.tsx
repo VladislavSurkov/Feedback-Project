@@ -5,6 +5,8 @@ import { ISortLine } from 'helpers/types/sortLine';
 import { SortItem } from 'selectItems/selectItems';
 import { IOption } from 'helpers/models/CategoriesTypes';
 
+import Modal from 'components/Modal/Modal';
+import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
 import DropdownSelect from 'components/Select/Select';
 import { Button } from 'components/Buttons/Button';
 
@@ -20,7 +22,7 @@ const SortLine: FC<ISortLine> = ({ products, setupdateProducts }) => {
   const [isModal, setIsModal] = useState(false);
 
   const modalOpen = () => setIsModal(true);
-
+  const submit = () => setIsModal(false);
 
   const onChange = (newValue: OnChangeValue<IOption, boolean>) => {
     switch ((newValue as IOption).value) {
@@ -60,6 +62,14 @@ const SortLine: FC<ISortLine> = ({ products, setupdateProducts }) => {
       <Button onClick={modalOpen} color="first" width="openModal">
         + Add Feedback
       </Button>
+      {isModal && (
+        <Modal onClose={() => setIsModal(false)}>
+          <ModalAddFeedback
+            onClose={() => setIsModal(false)}
+            onSubmit={submit}
+          />
+        </Modal>
+      )}
     </SortBox>
   );
 };

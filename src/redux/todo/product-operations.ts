@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Product } from 'helpers/types/product';
 
 
-axios.defaults.baseURL = 'https://my-json-server.typicode.com/VLadIslavSurkov/json';
+// axios.defaults.baseURL = 'https://my-json-server.typicode.com/VLadIslavSurkov/json';
 
 export const fetchProducts = createAsyncThunk<Product[], void, { rejectValue: string }>(
   '/suggestions',

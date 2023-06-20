@@ -9,6 +9,10 @@ import {
   CloseMenu,
 } from './Navigation.styled';
 
+import { SidebarData } from '../Navigation/NavigationData/NavigationData';
+import SideBarMenu from './NavigateMenu/Menu';
+import StatusMap from './StatusMap/StatusMap';
+
 const SideBar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSideBar = () => setSidebar(!sidebar);
@@ -26,6 +30,10 @@ const SideBar: FC = () => {
       </Box>
       <SaidBarNav sidebar={sidebar ? 1 : undefined}>
         <SideBarWrap>
+          {SidebarData.map((item, index) => {
+            return <SideBarMenu item={item} key={index} />;
+          })}
+          <StatusMap />
         </SideBarWrap>
       </SaidBarNav>
     </>
