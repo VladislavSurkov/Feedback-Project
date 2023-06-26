@@ -16,7 +16,7 @@ export const ProductList: FC<List> = ({ products }) => {
   return (
     <div>
       {products.map(product => (
-        <ProductBox key={product.id}>
+        <ProductBox key={product._id}>
           <ProductUpvote>
             <TbChevronUp style={{ color: '#4661E6', marginRight: '10px' }} />
             {product.upvotes}
