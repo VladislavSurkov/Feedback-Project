@@ -1,4 +1,3 @@
-
 type Comments = {
     _id: string,
     content: string,
@@ -8,7 +7,6 @@ export interface Owner {
     _id: string,
     name: string
 }
-
 
 export interface Product {
     _id: string;
@@ -34,7 +32,3 @@ export interface ItodoState {
 export interface List {
     products: Product[];
 }
-
-
-
-
