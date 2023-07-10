@@ -11,7 +11,7 @@ export const fetchProducts = createAsyncThunk<Product[], void, { rejectValue: st
     console.log(axios.defaults);
     try {
       const { data } = await axios.get('/tasks');
-     
+      console.log(data);
       return data
     } catch (e) {
       if (e instanceof AxiosError) {

@@ -33,6 +33,7 @@ export const login = createAsyncThunk<IUserState, IOperationsUserLogin, { reject
         try {
             const { data } = await axios.post('/auth/login', user);
             setAuthHeader(data.token);
+            console.log(data);
             return data;
         } catch (e) {
             return rejectWithValue('Please change your email ore name and try again');
