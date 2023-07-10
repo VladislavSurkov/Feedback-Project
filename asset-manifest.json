@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Feedback-Project/static/css/main.2a84de4d.css",
-    "main.js": "/Feedback-Project/static/js/main.872acc6d.js",
+    "main.js": "/Feedback-Project/static/js/main.60c26c42.js",
     "static/media/no-find.svg": "/Feedback-Project/static/media/no-find.8bf634e90b43a885d9510a6cc4a4aa29.svg",
     "index.html": "/Feedback-Project/index.html",
     "static/media/icon-new-feedback.svg": "/Feedback-Project/static/media/icon-new-feedback.de9414c7e4310cc4d4d562f2953c3da5.svg",
@@ -9,10 +9,10 @@
     "static/media/icon-arrow-left.svg": "/Feedback-Project/static/media/icon-arrow-left.ba4a5a752369c4316e03eb5e8ff6008b.svg",
     "static/media/icon-hamburger.svg": "/Feedback-Project/static/media/icon-hamburger.a8bc4c8c0391bf4ff8e8cb1d035d0f79.svg",
     "main.2a84de4d.css.map": "/Feedback-Project/static/css/main.2a84de4d.css.map",
-    "main.872acc6d.js.map": "/Feedback-Project/static/js/main.872acc6d.js.map"
+    "main.60c26c42.js.map": "/Feedback-Project/static/js/main.60c26c42.js.map"
   },
   "entrypoints": [
     "static/css/main.2a84de4d.css",
-    "static/js/main.872acc6d.js"
+    "static/js/main.60c26c42.js"
   ]
 }
