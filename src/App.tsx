@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Suggestions } from '../pages/Suggestions/Suggestions';
-import { SharedLayout } from './SharedLayout/SharedLayout';
+import { Suggestions } from './pages/Suggestions/Suggestions';
+import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import Registration from 'pages/Registration';
 import Login from 'pages/Login';
 
