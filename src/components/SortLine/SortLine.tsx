@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 
 import { ISortLine } from 'helpers/types/sortLine';
 import { SortItem } from 'selectItems/selectItems';
-import { IOption } from 'helpers/models/CategoriesTypes';
+import { IOption } from 'helpers/types/CategoriesTypes';
 
 import Modal from 'components/Modal/Modal';
 import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';

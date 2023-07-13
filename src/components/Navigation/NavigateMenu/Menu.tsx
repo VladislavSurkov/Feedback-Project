@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { SidebarItems } from 'helpers/models/SidebarTypes';
+import { SidebarItems } from 'helpers/types/SidebarTypes';
 import { Item, SidebarLabel, SidebarLink } from './menu.styled';
 
 type SidebarLinkProps = {

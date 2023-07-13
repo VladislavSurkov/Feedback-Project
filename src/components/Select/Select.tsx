@@ -6,7 +6,7 @@ import Select, {
   StylesConfig,
   ThemeConfig,
 } from 'react-select';
-import { IOption } from 'helpers/models/CategoriesTypes';
+import { IOption } from 'helpers/types/CategoriesTypes';
 
 type ISelectProps = {
   options: IOption[];

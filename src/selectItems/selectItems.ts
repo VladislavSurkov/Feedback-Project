@@ -1,5 +1,5 @@
-import { IOption } from "helpers/models/CategoriesTypes";
-import { SidebarItems } from 'helpers/models/SidebarTypes';
+import { IOption } from "helpers/types/CategoriesTypes";
+import { SidebarItems } from 'helpers/types/SidebarTypes';
 
 export const categoriesItem: IOption[] = [
   {

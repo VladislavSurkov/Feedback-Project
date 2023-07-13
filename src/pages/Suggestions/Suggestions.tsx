@@ -6,7 +6,6 @@ import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { fetchProducts } from 'redux/todo/product-operations';
 import { ProductList } from 'components/ProductList/ProductList';
 import { Product } from 'helpers/types/product';
-import { fetchingCurrentUser } from 'redux/user/auth-operations';
 
 export const Suggestions = () => {
   const dispatch = useAppDispatch();
@@ -15,7 +14,6 @@ export const Suggestions = () => {
 ;
   useEffect(() => {
     dispatch(fetchProducts());
-    dispatch(fetchingCurrentUser());
   }, [dispatch]);
 
   return (
