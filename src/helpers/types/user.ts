@@ -18,6 +18,7 @@ export interface IUser {
 export interface IUserState {
   token: null | string;
   user: IUser;
+  isLogin: boolean;
   isLoading: boolean;
   error: null | string;
 }

@@ -6,14 +6,16 @@ import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { fetchProducts } from 'redux/todo/product-operations';
 import { ProductList } from 'components/ProductList/ProductList';
 import { Product } from 'helpers/types/product';
+import { fetchingCurrentUser } from 'redux/user/auth-operations';
 
 export const Suggestions = () => {
   const dispatch = useAppDispatch();
   const { isLoading, products, error } = useTypedSelector(state => state.todo);
   const [updateProducts, setupdateProducts] = useState<Product[]>([]);
-
+;
   useEffect(() => {
     dispatch(fetchProducts());
+    dispatch(fetchingCurrentUser());
   }, [dispatch]);
 
   return (
