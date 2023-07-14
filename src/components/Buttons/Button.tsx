@@ -6,7 +6,7 @@ export type ButtonProps = {
   children?: React.ReactNode;
   color?: 'first' | 'second' | 'third' | 'fourth';
   width?: 'openModal' | 'postEdit' | 'addSave' | 'delete';
-  type?: 'submit';
+  type?: 'submit'| 'button';
 };
 
 export const Button = ({

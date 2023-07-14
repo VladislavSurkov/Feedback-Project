@@ -2,6 +2,7 @@ import { Button } from 'components/Buttons/Button';
 import { Form, Formik } from 'formik';
 import { categoriesItem } from 'selectItems/selectItems';
 import { AddFeedback } from 'helpers/schemas/addFeedback';
+import { IPropsModal } from 'helpers/types/modal';
 import {
   Category,
   FeedbackTitle,
@@ -10,13 +11,22 @@ import {
   InputDetails,
   Label,
   Title,
-} from './ModalForm.styled';
+} from './FormikModal.styled';
+import { useAppDispatch } from 'hooks/useHooks';
+import { createProducts } from 'redux/todo/product-operations';
+import { SendProduct } from 'helpers/types/product';
 
-export const AddForm = () => {
+export const FormikModal = ({ onClose }: IPropsModal) => {
+  const dispatch = useAppDispatch();
   const initialValues = {
-    feedback: '',
-    details: '',
-    articleType: '',
+    title: '',
+    description: '',
+    category: '',
+  };
+
+  const handleSubmit = (values: SendProduct) => {
+    dispatch(createProducts(values));
+    onClose();
   };
 
   return (
@@ -25,44 +35,43 @@ export const AddForm = () => {
       <Formik
         validationSchema={AddFeedback}
         initialValues={initialValues}
-        onSubmit={values => console.log(values)}
+        onSubmit={values => handleSubmit(values)}
       >
         <Form>
-          <FeedbackTitle htmlFor="feedback">Feedback Title</FeedbackTitle>
+          <FeedbackTitle htmlFor="title">Feedback Title</FeedbackTitle>
           <Input
             component="textarea"
-            name="feedback"
+            name="title"
             placeholder="Add a short, descriptive headline"
           />
-          <Category htmlFor="articleType">Category</Category>
+          <Category htmlFor="category">Category</Category>
           <FormSelect
             component="select"
-            name="articleType"
+            name="category"
             placeholder="Choose a category for your feedback"
           >
             {categoriesItem &&
               categoriesItem.map(item => (
-                <option key={item.value} value={item.value}>
+                <option key={item.value} value={item.label}>
                   {item.label}
                 </option>
               ))}
           </FormSelect>
-          <Label htmlFor="details">Feedback Detail</Label>
+          <Label htmlFor="description">Feedback Detail</Label>
           <InputDetails
             component="textarea"
-            name="details"
+            name="description"
             placeholder="Include any specific comments on what should be improved, added,
             etc."
           />
           <Button type="submit" color="first" width="addSave">
             Add
           </Button>
-          <Button color="third" width="delete">
+          <Button type="button" color="third" width="delete" onClick={onClose}>
             Cancel
           </Button>
         </Form>
       </Formik>
-      ;
     </>
   );
 };

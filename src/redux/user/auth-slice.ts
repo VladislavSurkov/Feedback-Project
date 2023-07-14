@@ -59,7 +59,6 @@ const authSlice = createSlice({
                     state.error = null;
                 }
             ).addMatcher(isError, (state, { payload }: PayloadAction<string>) => {
-                console.log(`rejected payload: ${payload}`);
                 state.error = payload;
                 state.isLoading = false;
                 state.isLogin = false;

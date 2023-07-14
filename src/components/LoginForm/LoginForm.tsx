@@ -13,7 +13,8 @@ import {
 } from './LoginForm.styled';
 import { useState } from 'react';
 import { login } from 'redux/user/auth-operations';
-export default function SigIn() {
+
+export default function LoginForm() {
   const [eye, setEye] = useState(false);
   const dispatch = useAppDispatch();
   return (

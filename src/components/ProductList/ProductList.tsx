@@ -11,8 +11,6 @@ import {
 } from './ProductList.styled';
 
 export const ProductList: FC<List> = ({ products }) => {
-  // console.log(products);
-
   return (
     <div>
       {products.map(product => (

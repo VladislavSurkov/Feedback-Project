@@ -19,7 +19,6 @@ export const todoSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchProducts.fulfilled, (state, { payload }) => {
-                console.log(payload);
                 state.products = payload;
             }).addCase(createProducts.fulfilled, (state, { payload }) => {
                 state.products.push(payload.result);

@@ -5,8 +5,8 @@ import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import { useAppDispatch } from 'hooks/useHooks';
 import { fetchingCurrentUser } from 'redux/user/auth-operations';
 import { PrivateRoute, PublicRoute } from 'components/PrivatPublicRoutes/PrivatPublicRoutes';
-import Registration from 'pages/Registration';
-import Login from 'pages/Login';
+import Registration from 'pages/Registration/Registration';
+import Login from 'pages/Login/Login';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();

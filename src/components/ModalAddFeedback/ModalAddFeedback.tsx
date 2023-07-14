@@ -1,15 +1,13 @@
+import { IPropsModal } from 'helpers/types/modal';
 import { StyledPlusIcon, Box } from './ModalAddFeedback.styled';
-import { AddForm } from 'components/FormikModal';
-interface IProps {
-  onSubmit: () => void;
-  onClose: () => void;
-}
+import { FormikModal } from 'components/FormikModal/FormikModal';
 
-export default function ModalAddFeedback({ onClose, onSubmit }: IProps) {
+
+export default function ModalAddFeedback({ onClose }: IPropsModal) {
   return (
     <Box>
       <StyledPlusIcon />
-      <AddForm />
+      <FormikModal onClose={onClose} />
     </Box>
   );
 }

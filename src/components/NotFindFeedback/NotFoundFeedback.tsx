@@ -2,14 +2,13 @@ import { useState } from 'react';
 import NoFindIcon from '../../images/svg/no-find.svg';
 import { NoFindBox, NoFindText, NoFindTitle } from './NotFoundFeedback.styled';
 import { Button } from 'components/Buttons/Button';
-import Modal from 'components/Modal/Modal';
+import Modal from 'components/Backdrop/Backdrop';
 import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
 
 const NotFoundFeedback = () => {
   const [isModal, setIsModal] = useState(false);
 
   const modalOpen = () => setIsModal(true);
-  const submit = () => console.log('submit');
 
   return (
     <NoFindBox>
@@ -26,7 +25,6 @@ const NotFoundFeedback = () => {
         <Modal onClose={() => setIsModal(false)}>
           <ModalAddFeedback
             onClose={() => setIsModal(false)}
-            onSubmit={submit}
           />
         </Modal>
       )}

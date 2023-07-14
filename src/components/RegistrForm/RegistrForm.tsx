@@ -15,7 +15,8 @@ import {
 import { useState } from 'react';
 import { register } from 'redux/user/auth-operations';
 import { useAppDispatch } from 'hooks/useHooks';
-export default function RegisterForm() {
+
+export default function RegistrForm() {
   const [status, setStatus] = useState(false);
   const [eye, setEye] = useState(false);
   const dispatch = useAppDispatch();

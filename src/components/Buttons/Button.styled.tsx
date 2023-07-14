@@ -49,7 +49,6 @@ export const Container = styled.button<ButtonProps>`
 
   height: 40px;
 
-  /* padding: 10px 15px; */
   ${props => props.width && WIDTH[props.width]}
   ${props => props.color && COLOR[props.color]}
 `;

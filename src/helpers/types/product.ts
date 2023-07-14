@@ -19,6 +19,12 @@ export interface Product {
     owner: Owner
 }
 
+export interface SendProduct {
+    title: string,
+    description: string,
+    category: string,
+}
+
 export interface CreateProduct {
     result: Product
 }
