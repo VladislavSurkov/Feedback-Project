@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { SidebarItems } from 'helpers/types/SidebarTypes';
-import { Item, SidebarLabel, SidebarLink } from './menu.styled';
+import {  SidebarLink } from './SideBarMenu.styled';
 
 type SidebarLinkProps = {
   item: SidebarItems;
@@ -10,9 +10,7 @@ const SideBarMenu: FC<SidebarLinkProps> = ({ item }) => {
   return (
     <>
       <SidebarLink to={item.path}>
-        <Item>
-          <SidebarLabel>{item.title}</SidebarLabel>
-        </Item>
+          <span>{item.title}</span>
       </SidebarLink>
     </>
   );

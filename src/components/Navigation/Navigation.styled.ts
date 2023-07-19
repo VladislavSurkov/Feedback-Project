@@ -13,15 +13,37 @@ export const Box = styled.div`
   background-image: url(${imgMobile});
   background-size: cover;
 `;
-export const SaidBarNav = styled.div<{ sidebar: number | undefined }>`
+export const SaidBarBackDrop = styled.div<{
+  sidebar: boolean
+}>`
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  width:  ${({ sidebar }) => (sidebar ? '100%' : '0')};;
+  height: 100%;
+  background-color: #00000080; 
+`
+
+export const SaidBarNav = styled.div<{
+  sidebar: boolean
+}>`
+  position: fixed;
+  display: flex;
+  box-sizing: border-box;
   width: 271px;
   height: 100vh;
-  position: fixed;
-  background-color: #f7f8fd;
+  padding: 24px;
+  align-items: center;
+  flex-direction: column;
+  background-color: #F7F8FD;
+
   top: 72px;
   right: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
-  transition: 350ms;
+  transition-property: right;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 `;
+
 
 export const List = styled.ul`
   color: #fff;
@@ -34,14 +56,27 @@ export const NavIcon = styled(Link)`
   height: 16px;
 `;
 export const SideBarWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  width: 223px;
-  height: 178px;
-  flex-wrap: wrap;
-  padding: 24px;
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+width: 225px;
+height: 180px;
+margin-bottom: 24px;
+padding: 24px 0 0 24px;
+border-radius: 10px;
+background: #fff;
 `;
+
+export const StatusMapContainer = styled.div`
+display: flex;
+
+width: 225px;
+height: 180px;
+padding: 24px 0 0 24px;
+border-radius: 10px;
+background: #fff;
+`
+
 
 export const BurgerMenu = styled(NavBurger)`
 
