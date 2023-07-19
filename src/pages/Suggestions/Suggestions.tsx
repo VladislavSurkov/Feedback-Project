@@ -9,7 +9,7 @@ import { Product } from 'helpers/types/product';
 
 export const Suggestions = () => {
   const dispatch = useAppDispatch();
-  const { isLoading, products, error } = useTypedSelector(state => state.todo);
+  const { isLoading, products } = useTypedSelector(state => state.todo);
   const [updateProducts, setupdateProducts] = useState<Product[]>([]);
 ;
   useEffect(() => {
@@ -22,7 +22,7 @@ export const Suggestions = () => {
       <Wrapper>
         {isLoading ? (
           <div>Loading..</div>
-        ) : !error ? (
+        ) : products.length ? (
           <ProductList
             products={updateProducts.length ? updateProducts : products}
           />
