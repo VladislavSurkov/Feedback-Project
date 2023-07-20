@@ -48,8 +48,10 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
           <FormSelect
             component="select"
             name="category"
-            placeholder="Choose a category for your feedback"
           >
+            <option disabled value="">
+              Choose a category for your feedback
+            </option>
             {categoriesItem &&
               categoriesItem.map(item => (
                 <option key={item.value} value={item.label}>

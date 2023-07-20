@@ -3,10 +3,6 @@ import { SidebarItems } from 'helpers/types/SidebarTypes';
 
 export const categoriesItem: IOption[] = [
   {
-    value: 'all',
-    label: 'All',
-  },
-  {
     value: 'ui',
     label: 'UI',
   },

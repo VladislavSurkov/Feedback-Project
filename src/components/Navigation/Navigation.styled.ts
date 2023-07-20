@@ -14,7 +14,7 @@ export const Box = styled.div`
   background-size: cover;
 `;
 export const SaidBarBackDrop = styled.div<{
-  sidebar: boolean
+  sidebar: number | undefined
 }>`
   position: absolute;
   right: 0;
@@ -25,7 +25,7 @@ export const SaidBarBackDrop = styled.div<{
 `
 
 export const SaidBarNav = styled.div<{
-  sidebar: boolean
+  sidebar: number | undefined
 }>`
   position: fixed;
   display: flex;

@@ -31,9 +31,8 @@ const SideBar: FC = () => {
           {!sidebar ? <BurgerMenu /> : <CloseMenu />}
         </NavIcon>
       </Box>
-      <SaidBarBackDrop sidebar={sidebar}>
-        <SaidBarNav sidebar={sidebar}>
-
+      <SaidBarBackDrop sidebar={sidebar ? 1 : undefined}>
+        <SaidBarNav sidebar={sidebar ? 1 : undefined}>
           <SideBarWrap>
             {SidebarData.map((item, index) => {
               return <SideBarMenu item={item} key={index} />;
