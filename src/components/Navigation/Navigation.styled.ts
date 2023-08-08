@@ -67,16 +67,6 @@ border-radius: 10px;
 background: #fff;
 `;
 
-export const StatusMapContainer = styled.div`
-display: flex;
-
-width: 225px;
-height: 180px;
-padding: 24px 0 0 24px;
-border-radius: 10px;
-background: #fff;
-`
-
 
 export const BurgerMenu = styled(NavBurger)`
 

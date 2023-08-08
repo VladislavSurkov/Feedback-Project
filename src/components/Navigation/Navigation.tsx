@@ -12,9 +12,7 @@ import {
   SideBarWrap,
   BurgerMenu,
   CloseMenu,
-  StatusMapContainer,
 } from './Navigation.styled';
-
 
 const SideBar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -39,9 +37,7 @@ const SideBar: FC = () => {
             })}
           </SideBarWrap>
 
-          <StatusMapContainer>
-            <StatusMap />
-          </StatusMapContainer>
+          <StatusMap />
         </SaidBarNav>
       </SaidBarBackDrop>
     </>
