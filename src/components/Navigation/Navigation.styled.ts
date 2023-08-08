@@ -35,8 +35,8 @@ export const SaidBarNav = styled.div<{
   padding: 24px;
   align-items: center;
   flex-direction: column;
-  background-color: #000;
-  //#f7f8fd
+  background-color: #f7f8fd;
+
 
   top: 72px;
   right: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
