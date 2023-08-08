@@ -35,7 +35,8 @@ export const SaidBarNav = styled.div<{
   padding: 24px;
   align-items: center;
   flex-direction: column;
-  background-color: #F7F8FD;
+  background-color: #000;
+  //#f7f8fd
 
   top: 72px;
   right: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
@@ -59,10 +60,13 @@ export const SideBarWrap = styled.div`
 display: flex;
 flex-wrap: wrap;
 gap: 8px;
+
 width: 225px;
 height: 180px;
+box-sizing: border-box;
+
 margin-bottom: 24px;
-padding: 24px 0 0 24px;
+padding: 24px ;
 border-radius: 10px;
 background: #fff;
 `;

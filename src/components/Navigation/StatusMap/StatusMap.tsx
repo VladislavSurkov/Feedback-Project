@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { StatusContainer } from './StatusMap.styled';
+import { StatusContainer, StatusMapTitle, TitleContainer } from './StatusMap.styled';
 const Li = styled.li`
   display: flex;
   justify-content: space-between;
@@ -9,19 +9,11 @@ const Li = styled.li`
 
 const RoadMap: FC = () => {
   return (
-    <StatusContainer
-     
-    >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <h3>Roadmap</h3>
+    <StatusContainer>
+      <TitleContainer>
+        <StatusMapTitle>Roadmap</StatusMapTitle>
         <Link to="/view">View</Link>
-      </div>
+      </TitleContainer>
 
       <ul>
         <Li>
