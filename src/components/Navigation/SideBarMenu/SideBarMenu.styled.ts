@@ -17,13 +17,18 @@ border-radius: 10px;
 background: #fff;
 `;
 
-export const SidebarLink = styled(Link)`
+export const Sidebar = styled.div`
   color: #4661e6;
   height: 30px;
   background-color: #f2f4ff;
   padding: 5px 16px;
   border-radius: 10px;
   text-decoration: none;
+
+   &.selected {
+    color: #f2f4ff;
+    background-color: #4661e6;
+  }
 
   &:hover {
     background-color: #4661e6;

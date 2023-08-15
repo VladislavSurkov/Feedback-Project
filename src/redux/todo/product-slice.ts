@@ -8,6 +8,7 @@ const initialState: ItodoState = {
     products: [],
     isLoading: false,
     error: null,
+
 };
 
 const extraActions = [fetchProducts, createProducts];

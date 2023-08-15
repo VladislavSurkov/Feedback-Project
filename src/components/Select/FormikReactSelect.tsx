@@ -1,7 +1,7 @@
 import { useField, useFormikContext } from 'formik';
 import Select, { GroupBase, StylesConfig, ThemeConfig } from 'react-select';
 import { StateManagerProps } from 'react-select/dist/declarations/src/useStateManager';
-import { IOption } from 'helpers/types/CategoriesTypes';
+import { IOption } from 'helpers/types/ItemsTypes';
 import { FocusEventHandler } from 'react';
 // modalAdd
 type GroupedOption = {

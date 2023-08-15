@@ -10,11 +10,14 @@ import { Product } from 'helpers/types/product';
 export const Suggestions = () => {
   const dispatch = useAppDispatch();
   const { isLoading, products } = useTypedSelector(state => state.todo);
+  const { user } = useTypedSelector(state => state.auth);
   const [updateProducts, setupdateProducts] = useState<Product[]>([]);
-;
+
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    if (user.email) {
+      dispatch(fetchProducts());
+    }
+  }, [user, dispatch]);
 
   return (
     <>

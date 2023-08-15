@@ -1,4 +1,4 @@
-import { IOption } from 'helpers/types/CategoriesTypes';
+import { IOption } from 'helpers/types/ItemsTypes';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 
 import {
@@ -36,10 +36,11 @@ export const colorStyles: StylesConfig<IOption> = {
     alignItems: 'center',
 
     color: isSelected ? '#AD1FEA' : '#647196',
+
     ':active': {
       color: '#AD1FEA',
     },
-    ':not(:last-child)': {
+    ':not(:lastChild)': {
       borderBottom: '1px solid #3a43747f',
     },
   }),

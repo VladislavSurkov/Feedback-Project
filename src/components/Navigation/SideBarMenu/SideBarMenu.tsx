@@ -1,25 +1,35 @@
-import { FC } from 'react';
-// import { SidebarItems } from 'helpers/types/SidebarTypes';
-import { SidebarLink, SidebarText, SideBarWrap } from './SideBarMenu.styled';
+import { FC, useState } from 'react';
+import { Sidebar, SidebarText, SideBarWrap } from './SideBarMenu.styled';
 import { SidebarData } from 'selectItems/selectItems';
 
-// type SidebarLinkProps = {
-//   item: SidebarItems;
-// };
 
 const SideBarMenu: FC = () => {
+  const [selectedItem, setSelectedItem] = useState<number >(0);
+
+  const handleItemClick = (index: number, value: string) => {
+    setSelectedItem(index);
+
+    console.log(index, value);
+  };
+
   return (
     <>
       <SideBarWrap>
         {SidebarData.map((item, index) => {
+          const isSelected = selectedItem === index;
           return (
-            <SidebarLink key={index} to={item.path}>
-              <SidebarText>{item.title}</SidebarText>
-            </SidebarLink>
+            <Sidebar
+              key={index}
+              onClick={() => handleItemClick(index, item.value)}
+              className={isSelected ? 'selected' : ''}
+            >
+              <SidebarText>{item.label}</SidebarText>
+            </Sidebar>
           );
         })}
       </SideBarWrap>
     </>
-  )
-}
+  );
+};
+
 export default SideBarMenu;

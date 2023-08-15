@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 
 import { ISortLine } from 'helpers/types/sortLine';
 import { SortItem } from 'selectItems/selectItems';
-import { IOption } from 'helpers/types/CategoriesTypes';
+import { IOption } from 'helpers/types/ItemsTypes';
 
 import Modal from 'components/Backdrop/Backdrop';
 import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
@@ -63,9 +63,7 @@ const SortLine: FC<ISortLine> = ({ products, setupdateProducts }) => {
       </Button>
       {isModal && (
         <Modal onClose={() => setIsModal(false)}>
-          <ModalAddFeedback
-            onClose={() => setIsModal(false)}
-          />
+          <ModalAddFeedback onClose={() => setIsModal(false)} />
         </Modal>
       )}
     </SortBox>

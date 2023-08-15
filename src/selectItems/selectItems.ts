@@ -1,5 +1,4 @@
-import { IOption } from "helpers/types/CategoriesTypes";
-import { SidebarItems } from 'helpers/types/SidebarTypes';
+import { IOption } from "helpers/types/ItemsTypes";
 
 export const categoriesItem: IOption[] = [
   {
@@ -26,30 +25,30 @@ export const categoriesItem: IOption[] = [
 
 
 
-export const SidebarData: SidebarItems[] = [
+export const SidebarData: IOption[] = [
   {
-    title: 'All',
-    path: '/all',
+    value: 'All',
+    label: 'All',
   },
   {
-    title: 'UI',
-    path: '/ui',
+    value: 'UI',
+    label: 'UI',
   },
   {
-    title: 'UX',
-    path: '/ux',
+    value: 'UX',
+    label: 'UX',
   },
   {
-    title: 'Enhancement',
-    path: '/enhancement',
+    value: 'Enhancement',
+    label: 'Enhancement',
   },
   {
-    title: 'Bug',
-    path: '/bug',
+    value: 'Bug',
+    label: 'Bug',
   },
   {
-    title: 'Feature',
-    path: '/feature',
+    value: 'Feature',
+    label: 'Feature',
   },
 ];
 
