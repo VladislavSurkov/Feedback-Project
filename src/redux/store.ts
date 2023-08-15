@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { todoReducer } from "./todo/product-slice";
 import { authReducer } from "./user/auth-slice";
+import { filtersReducer } from "./filters/filters-slice";
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
@@ -13,6 +14,7 @@ import {
     REGISTER,
 } from 'redux-persist';
 
+
 const persistConfig = {
     key: 'auth',
     storage,
@@ -23,14 +25,16 @@ const persistedReducer = persistReducer(persistConfig, authReducer);
 
 const rootReducer = combineReducers({
     auth: persistedReducer,
-    todo:  todoReducer
+    todo: todoReducer,
+    filters: filtersReducer,
 });
 
 
 export const store = configureStore({
     reducer: {
         auth: persistedReducer,
-        todo: todoReducer
+        todo: todoReducer,
+        filters: filtersReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

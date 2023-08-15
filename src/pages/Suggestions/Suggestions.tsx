@@ -9,8 +9,9 @@ import { Product } from 'helpers/types/product';
 
 export const Suggestions = () => {
   const dispatch = useAppDispatch();
-  const { isLoading, products } = useTypedSelector(state => state.todo);
   const { user } = useTypedSelector(state => state.auth);
+  const { isLoading, products } = useTypedSelector(state => state.todo);
+
   const [updateProducts, setupdateProducts] = useState<Product[]>([]);
 
   useEffect(() => {

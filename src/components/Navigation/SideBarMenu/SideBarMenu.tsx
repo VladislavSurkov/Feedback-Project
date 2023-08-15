@@ -1,26 +1,22 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Sidebar, SidebarText, SideBarWrap } from './SideBarMenu.styled';
 import { SidebarData } from 'selectItems/selectItems';
-
+import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
+import { setStatusFilter } from 'redux/filters/filters-slice';
 
 const SideBarMenu: FC = () => {
-  const [selectedItem, setSelectedItem] = useState<number >(0);
-
-  const handleItemClick = (index: number, value: string) => {
-    setSelectedItem(index);
-
-    console.log(index, value);
-  };
+  const dispatch = useAppDispatch();
+  const { status } = useTypedSelector(state => state.filters);
 
   return (
     <>
       <SideBarWrap>
         {SidebarData.map((item, index) => {
-          const isSelected = selectedItem === index;
+          const isSelected = status === item.value;
           return (
             <Sidebar
               key={index}
-              onClick={() => handleItemClick(index, item.value)}
+              onClick={() => dispatch(setStatusFilter(item.value))}
               className={isSelected ? 'selected' : ''}
             >
               <SidebarText>{item.label}</SidebarText>

@@ -23,8 +23,6 @@ export const categoriesItem: IOption[] = [
   },
 ];
 
-
-
 export const SidebarData: IOption[] = [
   {
     value: 'All',
@@ -51,7 +49,6 @@ export const SidebarData: IOption[] = [
     label: 'Feature',
   },
 ];
-
 
 export const SortItem: IOption[] = [
   {

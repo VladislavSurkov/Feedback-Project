@@ -1,5 +1,6 @@
-import { List } from 'helpers/types/product';
+import { List, Product } from 'helpers/types/product';
 import { FC } from 'react';
+import { useTypedSelector } from 'hooks/useHooks';
 import { TbMessageCircle2Filled, TbChevronUp } from 'react-icons/tb';
 import {
   ProductBox,
@@ -10,10 +11,28 @@ import {
   ProductComments,
 } from './ProductList.styled';
 
-export const ProductList: FC<List> = ({ products }) => {
+ const getStatusProducts = (products: Product[], status:string) => {
+   switch (status) {
+     case 'All':
+       return products;
+     case status:
+       return products.filter(product => product.category === status);
+     default:
+       return products;
+   }
+  };
+
+
+export const ProductList: FC<List> = () => {
+  const { products } = useTypedSelector(state => state.todo);
+  const { status } = useTypedSelector(state => state.filters);
+
+  const statusProducts = getStatusProducts(products, status);
+ 
+
   return (
     <div>
-      {products.map(product => (
+      {statusProducts.map(product => (
         <ProductBox key={product._id}>
           <ProductUpvote>
             <TbChevronUp style={{ color: '#4661E6', marginRight: '10px' }} />
