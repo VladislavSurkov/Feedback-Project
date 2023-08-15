@@ -1,15 +1,13 @@
 import { FC, useState } from 'react';
 
 import SideBarMenu from './SideBarMenu/SideBarMenu';
-import StatusMap from './StatusMap/StatusMap';
-import { SidebarData } from 'selectItems/selectItems';
+import RoadMap from './RoadMap/RoadMap';
 import {
   Box,
   List,
   NavIcon,
   SaidBarBackDrop,
   SaidBarNav,
-  SideBarWrap,
   BurgerMenu,
   CloseMenu,
 } from './Navigation.styled';
@@ -29,15 +27,11 @@ const SideBar: FC = () => {
           {!sidebar ? <BurgerMenu /> : <CloseMenu />}
         </NavIcon>
       </Box>
+
       <SaidBarBackDrop sidebar={sidebar ? 1 : undefined}>
         <SaidBarNav sidebar={sidebar ? 1 : undefined}>
-          <SideBarWrap>
-            {SidebarData.map((item, index) => {
-              return <SideBarMenu item={item} key={index} />;
-            })}
-          </SideBarWrap>
-
-          <StatusMap />
+          <SideBarMenu />
+          <RoadMap />
         </SaidBarNav>
       </SaidBarBackDrop>
     </>

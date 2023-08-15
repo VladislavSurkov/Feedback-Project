@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { StatusContainer, StatusMapTitle, TitleContainer } from './StatusMap.styled';
+import { StatusContainer, StatusMapTitle, TitleContainer } from './RoadMap.styled';
 const Li = styled.li`
   display: flex;
   justify-content: space-between;
