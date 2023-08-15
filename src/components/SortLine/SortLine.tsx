@@ -1,11 +1,12 @@
 import { OnChangeValue } from 'react-select';
 import { FC, useState } from 'react';
 
-import { ISortLine } from 'helpers/types/sortLine';
 import { SortItem } from 'selectItems/selectItems';
 import { IOption } from 'helpers/types/ItemsTypes';
+import { useAppDispatch } from 'hooks/useHooks';
+import { setSortFilter } from 'redux/filters/filters-slice';
 
-import Modal from 'components/Backdrop/Backdrop';
+import Backdrop from 'components/Backdrop/Backdrop';
 import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
 import DropdownSelect from 'components/Select/Select';
 import { Button } from 'components/Buttons/Button';
@@ -18,30 +19,13 @@ import {
   CustomOption,
 } from './Dropdown.styled';
 
-const SortLine: FC<ISortLine> = ({ products, setupdateProducts }) => {
+const SortLine: FC = () => {
   const [isModal, setIsModal] = useState(false);
-
   const modalOpen = () => setIsModal(true);
 
-  const onChange = (newValue: OnChangeValue<IOption, boolean>) => {
-    switch ((newValue as IOption).value) {
-      case 'mostUpvotes':
-        setupdateProducts([...products].sort((a, b) => b.upvotes - a.upvotes));
-        break;
-      case 'leastUpvotes':
-        setupdateProducts([...products].sort((a, b) => a.upvotes - b.upvotes));
-        break;
-      // case 'mostComments':
-      //   console.log(sort);
-      //   sort.sort((a, b) => a - b);
-      //   break;
-      // case 'leastComments':
-      //   sort.sort((a, b) => b.comments.length - a.comments.length);
-      //   break;
-      default:
-        break;
-    }
-  };
+  const dispatch = useAppDispatch();
+  const sortProducts = (newValue: OnChangeValue<IOption, boolean>) =>
+    dispatch(setSortFilter((newValue as IOption).value));
 
   return (
     <SortBox>
@@ -51,7 +35,7 @@ const SortLine: FC<ISortLine> = ({ products, setupdateProducts }) => {
           styles={{ ...colorStyles }}
           theme={themeStyles}
           components={{ Option: CustomOption, IndicatorSeparator }}
-          onChange={onChange}
+          onChange={sortProducts}
           isSearchable={false}
           options={SortItem}
           placeholder="Most Upvotes"
@@ -62,9 +46,9 @@ const SortLine: FC<ISortLine> = ({ products, setupdateProducts }) => {
         + Add Feedback
       </Button>
       {isModal && (
-        <Modal onClose={() => setIsModal(false)}>
+        <Backdrop onClose={() => setIsModal(false)}>
           <ModalAddFeedback onClose={() => setIsModal(false)} />
-        </Modal>
+        </Backdrop>
       )}
     </SortBox>
   );

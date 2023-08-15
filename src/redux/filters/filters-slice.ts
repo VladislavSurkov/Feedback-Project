@@ -14,8 +14,11 @@ const filtersSlice = createSlice({
         setStatusFilter(state, { payload }) {
             state.status = payload;
         },
+        setSortFilter(state, { payload }) {
+            state.sort = payload;
+        },
     },
 });
 
-export const { setStatusFilter } = filtersSlice.actions;
+export const { setStatusFilter, setSortFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

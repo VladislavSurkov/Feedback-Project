@@ -34,7 +34,3 @@ export interface ItodoState {
     isLoading: boolean,
     error: null | string,
 }
-
-export interface List {
-    products: Product[];
-}
