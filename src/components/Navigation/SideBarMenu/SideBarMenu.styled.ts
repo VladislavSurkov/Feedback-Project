@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
@@ -25,7 +24,7 @@ export const Sidebar = styled.div`
   border-radius: 10px;
   text-decoration: none;
 
-   &.selected {
+  &.selected {
     color: #f2f4ff;
     background-color: #4661e6;
   }
