@@ -1,13 +1,30 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { StatusContainer, StatusMapTitle, TitleContainer } from './RoadMap.styled';
-const Li = styled.li`
-  display: flex;
-  justify-content: space-between;
-`;
+import { useTypedSelector } from 'hooks/useHooks';
+
+import {
+  StatusContainer,
+  StatusMapTitle,
+  TitleContainer,
+  RoadLi,
+} from './RoadMap.styled';
+
 
 const RoadMap: FC = () => {
+  const { products } = useTypedSelector(state => state.todo);
+  
+const statusCounts = products.reduce(
+  (counts, product) => {
+    counts[product.status]++;
+    return counts;
+  },
+  {
+    'Planned': 0,
+    'In-Progress': 0,
+    'Live': 0,
+  } as Record<string, number>
+  );
+
   return (
     <StatusContainer>
       <TitleContainer>
@@ -16,18 +33,11 @@ const RoadMap: FC = () => {
       </TitleContainer>
 
       <ul>
-        <Li>
-          <span>Planned</span>
-          <span>3</span>
-        </Li>
-        <Li>
-          <span>In-progress</span>
-          <span>2</span>
-        </Li>
-        <Li>
-          <span>Live</span>
-          <span>1</span>
-        </Li>
+        {Object.entries(statusCounts).map(([status, count]) => (
+          <RoadLi key={status}>
+            {status}: {count}
+          </RoadLi>
+        ))}
       </ul>
     </StatusContainer>
   );

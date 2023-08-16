@@ -23,3 +23,9 @@ export const StatusMapTitle = styled.h3`
   font-size: 18px;
   font-weight: 700;
 `;
+
+export const RoadLi = styled.li`
+  display: flex;
+  justify-content: space-between;
+`;
+
