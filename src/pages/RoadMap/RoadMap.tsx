@@ -1,4 +1,4 @@
-import { ProductList } from "components/ProductList/ProductList";
+import  ProductList  from "components/ProductList/ProductList";
 import { useTypedSelector } from "hooks/useHooks";
 
 const RoadMap = () => {

@@ -15,7 +15,7 @@ import {
 } from './ProductList.styled';
 
 
-export const ProductList: FC<IProductProps> = ({ products }) => {
+ const ProductList: FC<IProductProps> = ({ products }) => {
   return (
     <>
       {products.length ? (
@@ -51,3 +51,5 @@ export const ProductList: FC<IProductProps> = ({ products }) => {
     </>
   );
 };
+
+export default ProductList

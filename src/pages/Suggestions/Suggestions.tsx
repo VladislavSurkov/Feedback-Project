@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
-import SortLine from 'components/SortLine/SortLine';
+
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { fetchProducts } from 'redux/todo/product-operations';
-import { ProductList } from 'components/ProductList/ProductList';
+
+import ProductList from 'components/ProductList/ProductList';
+import SortLine from 'components/SortLine/SortLine';
 import {
   getSortProducts,
   getStatusProducts,
 } from 'helpers/sorting/sortProducts';
+
 
 const Suggestions = () => {
   const dispatch = useAppDispatch();
