@@ -11,6 +11,7 @@ import {
   ProductTitle,
   ProductUpvote,
   ProductComments,
+  ListContainer,
 } from './ProductList.styled';
 
 
@@ -18,7 +19,7 @@ export const ProductList: FC<IProductProps> = ({ products }) => {
   return (
     <>
       {products.length ? (
-        <div>
+        <ListContainer>
           {products.map(product => (
             <ProductBox key={product._id}>
               <ProductUpvote>
@@ -43,7 +44,7 @@ export const ProductList: FC<IProductProps> = ({ products }) => {
               </ProductComments>
             </ProductBox>
           ))}
-        </div>
+        </ListContainer>
       ) : (
         <NotFindFeedback />
       )}

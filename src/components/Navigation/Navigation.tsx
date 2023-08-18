@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 
 import SideBarMenu from './SideBarMenu/SideBarMenu';
-import RoadMap from './RoadMap/RoadMap';
+import RoadMapMenu from './RoadMap/RoadMapMenu';
 import {
   Box,
   List,
@@ -31,7 +31,7 @@ const SideBar: FC = () => {
       <SaidBarBackDrop sidebar={sidebar ? 1 : undefined}>
         <SaidBarNav sidebar={sidebar ? 1 : undefined}>
           <SideBarMenu />
-          <RoadMap />
+          <RoadMapMenu />
         </SaidBarNav>
       </SaidBarBackDrop>
     </>

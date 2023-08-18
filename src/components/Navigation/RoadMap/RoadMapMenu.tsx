@@ -7,29 +7,29 @@ import {
   StatusMapTitle,
   TitleContainer,
   RoadLi,
-} from './RoadMap.styled';
+} from './RoadMapMenu.styled';
 
 
-const RoadMap: FC = () => {
+const RoadMapMenu: FC = () => {
   const { products } = useTypedSelector(state => state.todo);
-  
-const statusCounts = products.reduce(
-  (counts, product) => {
-    counts[product.status]++;
-    return counts;
-  },
-  {
-    'Planned': 0,
-    'In-Progress': 0,
-    'Live': 0,
-  } as Record<string, number>
+
+  const statusCounts = products.reduce(
+    (counts, product) => {
+      counts[product.status]++;
+      return counts;
+    },
+    {
+      Planned: 0,
+      'In-Progress': 0,
+      Live: 0,
+    } as Record<string, number>
   );
 
   return (
     <StatusContainer>
       <TitleContainer>
         <StatusMapTitle>Roadmap</StatusMapTitle>
-        <Link to="/view">View</Link>
+        <Link to="/roadmap">View</Link>
       </TitleContainer>
 
       <ul>
@@ -42,4 +42,4 @@ const statusCounts = products.reduce(
     </StatusContainer>
   );
 };
-export default RoadMap;
+export default RoadMapMenu;

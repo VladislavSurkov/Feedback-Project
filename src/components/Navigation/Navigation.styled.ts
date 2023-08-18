@@ -39,7 +39,7 @@ export const SaidBarNav = styled.div<{
 
 
   top: 72px;
-  right: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
+  right: ${({ sidebar }) => (sidebar ? '0' : '-200%')};
   transition-property: right;
   transition-duration: 350ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

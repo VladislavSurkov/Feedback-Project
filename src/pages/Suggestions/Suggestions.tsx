@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import SortLine from 'components/SortLine/SortLine';
-import { Wrapper } from './Suggestions.styled';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { fetchProducts } from 'redux/todo/product-operations';
 import { ProductList } from 'components/ProductList/ProductList';
@@ -9,7 +8,7 @@ import {
   getStatusProducts,
 } from 'helpers/sorting/sortProducts';
 
- const Suggestions = () => {
+const Suggestions = () => {
   const dispatch = useAppDispatch();
   const {
     auth: { user },
@@ -29,13 +28,11 @@ import {
   return (
     <>
       <SortLine />
-      <Wrapper>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          <ProductList products={sortProducts} />
-        )}
-      </Wrapper>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <ProductList products={sortProducts} />
+      )}
     </>
   );
 };

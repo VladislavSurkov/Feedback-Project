@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Suggestions from './pages/Suggestions/Suggestions';
+import RoadMap from 'pages/RoadMap/RoadMap';
 import Registration from 'pages/Registration/Registration';
 import Login from 'pages/Login/Login';
 
@@ -12,6 +13,7 @@ import {
   PublicRoute,
 } from 'components/PrivatPublicRoutes/PrivatPublicRoutes';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
+
 
 
 const App: FC = () => {
@@ -33,6 +35,8 @@ const App: FC = () => {
         <Route path="/" element={<PrivateRoute component={<SharedLayout />} />}>
           <Route index element={<Suggestions />} />
         </Route>
+
+        <Route path="/roadmap" element={<PrivateRoute component={ <RoadMap/>} />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

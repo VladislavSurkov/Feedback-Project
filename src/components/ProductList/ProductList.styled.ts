@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 
+export const ListContainer = styled.div`
+display: flex;
+flex-direction: column;
+padding: 0 24px;
+`
+
 export const ProductBox = styled.div`
-  display: flex;
   position: relative;
   background-color: #ffffff;
-  /* margin-bottom: 16px; */
-  margin: 0 24px 16px;
+  margin-bottom: 16px;
   padding: 24px;
 `;
 export const ProductTitle = styled.h2`
