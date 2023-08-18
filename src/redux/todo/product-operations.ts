@@ -1,9 +1,9 @@
 import axios, { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { CreateProduct, Product, SendProduct } from 'helpers/types/product';
+import { ICreateProduct, IProduct, ISendProduct } from 'helpers/types/product';
 
 
-export const fetchProducts = createAsyncThunk<Product[], void, { rejectValue: string }>(
+export const fetchProducts = createAsyncThunk<IProduct[], void, { rejectValue: string }>(
   '/suggestions',
   async (_, thunkAPI) => {
     try {
@@ -17,7 +17,7 @@ export const fetchProducts = createAsyncThunk<Product[], void, { rejectValue: st
   }
 );
 
-export const createProducts = createAsyncThunk<CreateProduct, SendProduct, { rejectValue: string }>(
+export const createProducts = createAsyncThunk<ICreateProduct, ISendProduct, { rejectValue: string }>(
   '/',
   async (product, thunkAPI) => {
     try {

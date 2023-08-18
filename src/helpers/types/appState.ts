@@ -1,8 +1,8 @@
-import { ItodoState } from "./product";
+import { ITodoState } from "./product";
 import { IUserState } from "./user";
 
 
 export interface IAppState {
     auth: IUserState,
-    todo: ItodoState,
+    todo: ITodoState,
 }

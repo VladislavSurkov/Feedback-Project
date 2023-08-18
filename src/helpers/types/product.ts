@@ -3,12 +3,12 @@ type Comments = {
     content: string,
     user: any[]
 }
-export interface Owner {
+type Owner = {
     _id: string,
     name: string
 }
 
-export interface Product {
+export interface IProduct {
     _id: string;
     title: string
     category: string,
@@ -19,18 +19,22 @@ export interface Product {
     owner: Owner
 }
 
-export interface SendProduct {
+export interface ISendProduct {
     title: string,
     description: string,
     category: string,
 }
 
-export interface CreateProduct {
-    result: Product
+export interface ICreateProduct {
+    result: IProduct
 }
 
-export interface ItodoState {
-    products: Product[];
+export interface ITodoState {
+    products: IProduct[];
     isLoading: boolean,
     error: null | string,
+}
+
+export interface IProductProps {
+    products: IProduct[];
 }

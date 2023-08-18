@@ -1,5 +1,6 @@
+import { ButtonProps } from 'helpers/types/button';
 import styled, { css } from 'styled-components';
-import { ButtonProps } from './Button';
+
 
 const COLOR = {
   first: css`

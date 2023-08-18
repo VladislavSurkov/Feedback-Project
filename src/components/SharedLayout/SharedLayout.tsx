@@ -1,8 +1,10 @@
-import SideBar from '../Navigation/Navigation';
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const SharedLayout: FC = () => {
+import SideBar from '../Navigation/Navigation';
+
+
+ const SharedLayout: FC = () => {
   return (
     <>
       <SideBar />
@@ -10,3 +12,5 @@ export const SharedLayout: FC = () => {
     </>
   );
 };
+
+export default SharedLayout

@@ -8,6 +8,7 @@ import { IPropsModal } from 'helpers/types/modal';
 const modalEl = document.getElementById('modal-root') as HTMLElement;
 const ESCAPE_KEY = 'Escape';
 
+
 export default function Modal({ onClose, children }: IPropsModal) {
   const handleBackdropCloseModal = ({
     target,

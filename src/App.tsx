@@ -1,12 +1,18 @@
 import { FC, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Suggestions } from './pages/Suggestions/Suggestions';
-import { SharedLayout } from './components/SharedLayout/SharedLayout';
-import { useAppDispatch } from 'hooks/useHooks';
-import { fetchingCurrentUser } from 'redux/user/auth-operations';
-import { PrivateRoute, PublicRoute } from 'components/PrivatPublicRoutes/PrivatPublicRoutes';
+
+import Suggestions from './pages/Suggestions/Suggestions';
 import Registration from 'pages/Registration/Registration';
 import Login from 'pages/Login/Login';
+
+import { useAppDispatch } from 'hooks/useHooks';
+import { fetchingCurrentUser } from 'redux/user/auth-operations';
+import {
+  PrivateRoute,
+  PublicRoute,
+} from 'components/PrivatPublicRoutes/PrivatPublicRoutes';
+import SharedLayout from 'components/SharedLayout/SharedLayout';
+
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +33,7 @@ const App: FC = () => {
         <Route path="/" element={<PrivateRoute component={<SharedLayout />} />}>
           <Route index element={<Suggestions />} />
         </Route>
-        
+
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

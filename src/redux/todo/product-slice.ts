@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { fetchProducts, createProducts } from './product-operations';
-import { ItodoState } from 'helpers/types/product';
+import { ITodoState } from 'helpers/types/product';
 import { isError } from 'redux/isError';
 
 
-const initialState: ItodoState = {
+const initialState: ITodoState = {
     products: [],
     isLoading: false,
     error: null,

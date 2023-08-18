@@ -1,35 +1,11 @@
+import Select from 'react-select';
 import { useField, useFormikContext } from 'formik';
-import Select, { GroupBase, StylesConfig, ThemeConfig } from 'react-select';
-import { StateManagerProps } from 'react-select/dist/declarations/src/useStateManager';
+
 import { IOption } from 'helpers/types/ItemsTypes';
-import { FocusEventHandler } from 'react';
-// modalAdd
-type GroupedOption = {
-  label: string;
-  options: IOption[];
-};
+import { FormikReactProps } from 'helpers/types/select';
 
-type Props = {
-  onBlur?: FocusEventHandler;
-  isSearchable?: boolean;
-  onFocus?: FocusEventHandler;
-  styles?:
-    | (StylesConfig<IOption, false, GroupBase<IOption>> &
-        StylesConfig<IOption, boolean, GroupedOption>)
-    | undefined;
-  theme?: ThemeConfig;
-  placeholder?: string;
-  required?: boolean;
 
-  components?: any;
-
-  name: string;
-} & Omit<
-  StateManagerProps<IOption, false | true, GroupedOption>,
-  'value' | 'onChange'
->;
-
-const FormikReactSelect = (props: Props) => {
+const FormikReactSelect = (props: FormikReactProps) => {
   const { name, ...restProps } = props;
   const [field] = useField(name);
   const { setFieldValue } = useFormikContext();

@@ -1,13 +1,6 @@
-import React from 'react';
 import { Container } from './Button.styled';
+import { ButtonProps } from 'helpers/types/button';
 
-export type ButtonProps = {
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  children?: React.ReactNode;
-  color?: 'first' | 'second' | 'third' | 'fourth';
-  width?: 'openModal' | 'postEdit' | 'addSave' | 'delete';
-  type?: 'submit'| 'button';
-};
 
 export const Button = ({
   onClick,

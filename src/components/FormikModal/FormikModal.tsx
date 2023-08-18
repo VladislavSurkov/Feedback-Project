@@ -1,8 +1,12 @@
-import { Button } from 'components/Buttons/Button';
 import { Form, Formik } from 'formik';
+
+import { Button } from 'components/Buttons/Button';
 import { categoriesItem } from 'selectItems/selectItems';
 import { AddFeedback } from 'helpers/schemas/addFeedback';
 import { IPropsModal } from 'helpers/types/modal';
+import { ISendProduct } from 'helpers/types/product';
+import { useAppDispatch } from 'hooks/useHooks';
+import { createProducts } from 'redux/todo/product-operations';
 import {
   Category,
   FeedbackTitle,
@@ -12,9 +16,7 @@ import {
   Label,
   Title,
 } from './FormikModal.styled';
-import { useAppDispatch } from 'hooks/useHooks';
-import { createProducts } from 'redux/todo/product-operations';
-import { SendProduct } from 'helpers/types/product';
+
 
 export const FormikModal = ({ onClose }: IPropsModal) => {
   const dispatch = useAppDispatch();
@@ -24,7 +26,7 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
     category: '',
   };
 
-  const handleSubmit = (values: SendProduct) => {
+  const handleSubmit = (values: ISendProduct) => {
     dispatch(createProducts(values));
     onClose();
   };
@@ -45,10 +47,7 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
             placeholder="Add a short, descriptive headline"
           />
           <Category htmlFor="category">Category</Category>
-          <FormSelect
-            component="select"
-            name="category"
-          >
+          <FormSelect component="select" name="category">
             <option disabled value="">
               Choose a category for your feedback
             </option>
