@@ -5,6 +5,7 @@ import { fetchProducts } from 'redux/todo/product-operations';
 
 import ProductList from 'components/ProductList/ProductList';
 import SortLine from 'components/SortLine/SortLine';
+import NotFoundFeedback from 'components/NotFoundFeedback/NotFoundFeedback';
 import {
   getSortProducts,
   getStatusProducts,
@@ -33,8 +34,10 @@ const Suggestions = () => {
       <SortLine />
       {isLoading ? (
         <div>Loading...</div>
-      ) : (
+      ) : sortProducts.length ? (
         <ProductList products={sortProducts} />
+      ) : (
+        <NotFoundFeedback />
       )}
     </>
   );

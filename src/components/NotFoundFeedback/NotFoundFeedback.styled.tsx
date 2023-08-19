@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const NoFindCont = styled.div`
+export const NoFoundCont = styled.div`
   display: flex;
   justify-content: center;
 `;
-export const NoFindBox = styled.div`
+export const NoFoundBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ export const NoFindBox = styled.div`
   height: 308px;
   padding: 76px 25px;
 `;
-export const NoFindTitle = styled.h2`
+export const NoFoundTitle = styled.h2`
   font-family: 'Jost';
   font-weight: 700;
   font-size: 18px;
@@ -25,7 +25,7 @@ export const NoFindTitle = styled.h2`
   letter-spacing: -0.25px;
   color: #3a4374;
 `;
-export const NoFindText = styled.span`
+export const NoFoundText = styled.span`
   font-family: 'Jost';
   font-weight: 400;
   font-size: 13px;

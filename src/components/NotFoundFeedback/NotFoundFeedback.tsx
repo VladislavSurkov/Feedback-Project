@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import NoFindIcon from '../../images/svg/no-find.svg';
+import NoFoundIcon from '../../images/svg/no-found.svg';
 import {
-  NoFindBox,
-  NoFindText,
-  NoFindTitle,
-  NoFindCont,
+  NoFoundBox,
+  NoFoundText,
+  NoFoundTitle,
+  NoFoundCont,
 } from './NotFoundFeedback.styled';
 import { Button } from 'components/Buttons/Button';
 import Modal from 'components/Backdrop/Backdrop';
@@ -16,14 +16,14 @@ const NotFoundFeedback = () => {
   const modalOpen = () => setIsModal(true);
 
   return (
-    <NoFindCont>
-      <NoFindBox>
-        <img src={NoFindIcon} alt="noFind" />
-        <NoFindTitle>There is no feedback yet.</NoFindTitle>
-        <NoFindText>
+    <NoFoundCont>
+      <NoFoundBox>
+        <img src={NoFoundIcon} alt="noFind" />
+        <NoFoundTitle>There is no feedback yet.</NoFoundTitle>
+        <NoFoundText>
           Got a suggestion? Found a bug that needs to be squashed? We love
           hearing about new ideas to improve our app.
-        </NoFindText>
+        </NoFoundText>
         <Button onClick={modalOpen} color="first" width="openModal">
           + Add Feedback
         </Button>
@@ -32,8 +32,8 @@ const NotFoundFeedback = () => {
             <ModalAddFeedback onClose={() => setIsModal(false)} />
           </Modal>
         )}
-      </NoFindBox>
-    </NoFindCont>
+      </NoFoundBox>
+    </NoFoundCont>
   );
 };
 export default NotFoundFeedback;
