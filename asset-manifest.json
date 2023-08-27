@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Feedback-Project/static/css/main.7f3661d0.css",
-    "main.js": "/Feedback-Project/static/js/main.cb96fa6f.js",
+    "main.js": "/Feedback-Project/static/js/main.568b04b9.js",
     "static/media/Jost-SemiBold.ttf": "/Feedback-Project/static/media/Jost-SemiBold.c884553b974be0f58c33.ttf",
     "static/media/Jost-Bold.ttf": "/Feedback-Project/static/media/Jost-Bold.d26e8e629f57716e90a0.ttf",
     "static/media/Jost-Regular.ttf": "/Feedback-Project/static/media/Jost-Regular.ca33bfb0214ee2e6936a.ttf",
@@ -12,10 +12,10 @@
     "static/media/icon-arrow-left.svg": "/Feedback-Project/static/media/icon-arrow-left.ba4a5a752369c4316e03eb5e8ff6008b.svg",
     "static/media/icon-hamburger.svg": "/Feedback-Project/static/media/icon-hamburger.a8bc4c8c0391bf4ff8e8cb1d035d0f79.svg",
     "main.7f3661d0.css.map": "/Feedback-Project/static/css/main.7f3661d0.css.map",
-    "main.cb96fa6f.js.map": "/Feedback-Project/static/js/main.cb96fa6f.js.map"
+    "main.568b04b9.js.map": "/Feedback-Project/static/js/main.568b04b9.js.map"
   },
   "entrypoints": [
     "static/css/main.7f3661d0.css",
-    "static/js/main.cb96fa6f.js"
+    "static/js/main.568b04b9.js"
   ]
 }
