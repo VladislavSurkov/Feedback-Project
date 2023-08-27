@@ -10,7 +10,7 @@ import {
   SaidBarNav,
   BurgerMenu,
   CloseMenu,
-} from './Navigation.styled';
+} from './SideBar.styled';
 
 const SideBar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
