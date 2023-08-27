@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import SideBar from '../Navigation/SideBar';
+import SideBar from '../SideBar/SideBar';
 
 
  const SharedLayout: FC = () => {

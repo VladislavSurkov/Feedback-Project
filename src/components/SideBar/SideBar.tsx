@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 
-import SideBarMenu from './SideBarMenu/SideBarMenu';
-import RoadMapMenu from './RoadMap/RoadMapMenu';
+import SideBarMenu from '../SideBarMenu/SideBarMenu';
+import RoadMapMenu from '../RoadMap/RoadMapMenu';
 import {
-  Box,
-  List,
+  SaidBarBox,
+  SaidBarList,
   NavIcon,
   SaidBarBackDrop,
   SaidBarNav,
@@ -18,15 +18,15 @@ const SideBar: FC = () => {
 
   return (
     <>
-      <Box>
-        <List>
+      <SaidBarBox>
+        <SaidBarList>
           <li>Frontend Mentor</li>
           <li>FeedBack Board</li>
-        </List>
+        </SaidBarList>
         <NavIcon to="#" onClick={showSideBar}>
           {!sidebar ? <BurgerMenu /> : <CloseMenu />}
         </NavIcon>
-      </Box>
+      </SaidBarBox>
 
       <SaidBarBackDrop sidebar={sidebar ? 1 : undefined}>
         <SaidBarNav sidebar={sidebar ? 1 : undefined}>

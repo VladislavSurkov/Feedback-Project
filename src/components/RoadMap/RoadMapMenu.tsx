@@ -19,9 +19,9 @@ const RoadMapMenu: FC = () => {
       return counts;
     },
     {
-      Planned: 0,
+      'Planned': 0,
       'In-Progress': 0,
-      Live: 0,
+      'Live': 0,
     } as Record<string, number>
   );
 
