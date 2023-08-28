@@ -1,12 +1,14 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+
 import { useTypedSelector } from 'hooks/useHooks';
 
 import {
   StatusContainer,
   StatusMapTitle,
+  StatusMapLink,
   TitleContainer,
   RoadLi,
+  RoadCount,
 } from './RoadMapMenu.styled';
 
 
@@ -29,13 +31,13 @@ const RoadMapMenu: FC = () => {
     <StatusContainer>
       <TitleContainer>
         <StatusMapTitle>Roadmap</StatusMapTitle>
-        <Link to="/roadmap">View</Link>
+        <StatusMapLink to="/roadmap">View</StatusMapLink>
       </TitleContainer>
 
       <ul>
         {Object.entries(statusCounts).map(([status, count]) => (
-          <RoadLi key={status}>
-            {status}: {count}
+          <RoadLi key={status} status={status}>
+            {status} <RoadCount>{count}</RoadCount>
           </RoadLi>
         ))}
       </ul>
