@@ -1,5 +1,6 @@
 import { FC } from 'react';
-
+import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
+import { setOverflow } from 'redux/modal/modal-slice';
 import SideBarMenu from '../SideBarMenu/SideBarMenu';
 import RoadMapMenu from '../RoadMap/RoadMapMenu';
 import {
@@ -11,8 +12,7 @@ import {
   BurgerMenu,
   CloseMenu,
 } from './SideBar.styled';
-import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
-import { setOverflow } from 'redux/modal/modal-slice';
+
 
 const SideBar: FC = () => {
   const dispatch = useAppDispatch();

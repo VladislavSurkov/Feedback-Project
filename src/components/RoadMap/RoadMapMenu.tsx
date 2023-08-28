@@ -1,7 +1,6 @@
 import { FC } from 'react';
-
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
-
+import { setOverflow } from 'redux/modal/modal-slice';
 import {
   StatusContainer,
   StatusMapTitle,
@@ -10,7 +9,7 @@ import {
   RoadLi,
   RoadCount,
 } from './RoadMapMenu.styled';
-import { setOverflow } from 'redux/modal/modal-slice';
+
 
 const RoadMapMenu: FC = () => {
   const dispatch = useAppDispatch();
