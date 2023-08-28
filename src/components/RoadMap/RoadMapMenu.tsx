@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useTypedSelector } from 'hooks/useHooks';
+import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 
 import {
   StatusContainer,
@@ -10,9 +10,10 @@ import {
   RoadLi,
   RoadCount,
 } from './RoadMapMenu.styled';
-
+import { setOverflow } from 'redux/modal/modal-slice';
 
 const RoadMapMenu: FC = () => {
+  const dispatch = useAppDispatch();
   const { products } = useTypedSelector(state => state.todo);
 
   const statusCounts = products.reduce(
@@ -31,7 +32,12 @@ const RoadMapMenu: FC = () => {
     <StatusContainer>
       <TitleContainer>
         <StatusMapTitle>Roadmap</StatusMapTitle>
-        <StatusMapLink to="/roadmap">View</StatusMapLink>
+        <StatusMapLink
+          onClick={() => dispatch(setOverflow(false))}
+          to="/roadmap"
+        >
+          View
+        </StatusMapLink>
       </TitleContainer>
 
       <ul>
