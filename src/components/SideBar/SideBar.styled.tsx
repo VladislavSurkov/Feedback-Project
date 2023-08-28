@@ -58,6 +58,7 @@ export const SaidBarBackDrop = styled.div<{
   width: ${({ sidebar }) => (sidebar ? '100%' : '0')};
   height: 100%;
   background-color: #00000080;
+  
 `;
 
 export const SaidBarNav = styled.div<{

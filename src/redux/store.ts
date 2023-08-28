@@ -13,6 +13,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
+import { modalReducer } from "./modal/modal-slice";
 
 
 const persistConfig = {
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
     auth: persistedReducer,
     todo: todoReducer,
     filters: filtersReducer,
+    modal: modalReducer,
 });
 
 
@@ -35,6 +37,7 @@ export const store = configureStore({
         auth: persistedReducer,
         todo: todoReducer,
         filters: filtersReducer,
+        modal: modalReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

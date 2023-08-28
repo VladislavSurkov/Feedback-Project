@@ -11,25 +11,32 @@ import {
   BurgerMenu,
   CloseMenu,
 } from './SideBar.styled';
+import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
+import { setOverflow } from 'redux/modal/modal-slice';
 
 const SideBar: FC = () => {
-  const [sidebar, setSidebar] = useState(false);
-  const showSideBar = () => setSidebar(!sidebar);
+  const dispatch = useAppDispatch();
+  const { overflow } = useTypedSelector(state => state.modal);
+  const { user } = useTypedSelector(state => state.auth);
+
+  const showSideBar = () => {
+    dispatch(setOverflow(!overflow));
+  };
 
   return (
     <>
       <SaidBarBox>
         <SaidBarList>
-          <li>Frontend Mentor</li>
-          <li>FeedBack Board</li>
+          <li>{user.name}</li>
+          <li>{user.email}</li>
         </SaidBarList>
         <NavIcon to="#" onClick={showSideBar}>
-          {!sidebar ? <BurgerMenu /> : <CloseMenu />}
+          {!overflow ? <BurgerMenu /> : <CloseMenu />}
         </NavIcon>
       </SaidBarBox>
 
-      <SaidBarBackDrop sidebar={sidebar ? 1 : undefined}>
-        <SaidBarNav sidebar={sidebar ? 1 : undefined}>
+      <SaidBarBackDrop sidebar={overflow ? 1 : undefined}>
+        <SaidBarNav sidebar={overflow ? 1 : undefined}>
           <SideBarMenu />
           <RoadMapMenu />
         </SaidBarNav>
