@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import NoFoundIcon from '../../images/svg/no-found.svg';
 import {
   NoFoundBox,
@@ -9,11 +8,15 @@ import {
 import { Button } from 'components/Buttons/Button';
 import Modal from 'components/Backdrop/Backdrop';
 import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
+import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
+import { setModal } from 'redux/modal/modal-slice';
+
 
 const NotFoundFeedback = () => {
-  const [isModal, setIsModal] = useState(false);
+  const dispatch = useAppDispatch();
+  const { modal } = useTypedSelector(state => state.modal);
 
-  const modalOpen = () => setIsModal(true);
+  const modalOpen = () => dispatch(setModal(true));
 
   return (
     <NoFoundCont>
@@ -27,9 +30,9 @@ const NotFoundFeedback = () => {
         <Button onClick={modalOpen} color="first" width="openModal">
           + Add Feedback
         </Button>
-        {isModal && (
-          <Modal onClose={() => setIsModal(false)}>
-            <ModalAddFeedback onClose={() => setIsModal(false)} />
+        {modal && (
+          <Modal onClose={() => dispatch(setModal(false))}>
+            <ModalAddFeedback onClose={() => dispatch(setModal(false))} />
           </Modal>
         )}
       </NoFoundBox>

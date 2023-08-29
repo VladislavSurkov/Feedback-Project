@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
-import { setOverflow } from 'redux/modal/modal-slice';
+import { setSidebar } from 'redux/modal/modal-slice';
 import {
   StatusContainer,
   StatusMapTitle,
@@ -32,7 +32,7 @@ const RoadMapMenu: FC = () => {
       <TitleContainer>
         <StatusMapTitle>Roadmap</StatusMapTitle>
         <StatusMapLink
-          onClick={() => dispatch(setOverflow(false))}
+          onClick={() => dispatch(setSidebar(false))}
           to="/roadmap"
         >
           View

@@ -3,7 +3,7 @@ import { Sidebar, SidebarText, SideBarWrap } from './SideBarMenu.styled';
 import { SidebarData } from 'selectItems/selectItems';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { setStatusFilter } from 'redux/filters/filters-slice';
-import { setOverflow } from 'redux/modal/modal-slice';
+import { setSidebar } from 'redux/modal/modal-slice';
 
 
 const SideBarMenu: FC = () => {
@@ -12,7 +12,7 @@ const SideBarMenu: FC = () => {
 
   const showStatusFilter = (value: string) => {
     dispatch(setStatusFilter(value));
-    dispatch(setOverflow(false));
+    dispatch(setSidebar(false));
   };
 
   return (

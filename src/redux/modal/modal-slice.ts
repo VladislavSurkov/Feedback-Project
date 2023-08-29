@@ -3,22 +3,29 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    overflow: false,
+    sidebar: false,
+    modal: false,
+};
+
+const setBodyOverflow = (value: boolean) => {
+    const body = document.body;
+    body.style.overflow = value ? "hidden" : "";
 };
 
 const modalSlice = createSlice({
-    name: "filters",
+    name: "modal",
     initialState,
     reducers: {
-        setOverflow(state, { payload }) {
-            const body = document.body;
-            payload
-                ? (body.style.overflow = 'hidden')
-                : (body.style.overflow = '');
-            state.overflow = payload;
-        }
+        setSidebar(state, { payload }) {
+            state.sidebar = payload;
+            setBodyOverflow(payload)
+        },
+        setModal(state, { payload }) {
+            state.modal = payload;
+            setBodyOverflow(payload)
+        },
     },
 });
 
-export const { setOverflow, } = modalSlice.actions;
+export const { setSidebar, setModal } = modalSlice.actions;
 export const modalReducer = modalSlice.reducer;
