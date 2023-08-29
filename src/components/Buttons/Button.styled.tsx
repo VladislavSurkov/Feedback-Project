@@ -1,23 +1,34 @@
 import { ButtonProps } from 'helpers/types/button';
 import styled, { css } from 'styled-components';
 
-
 const COLOR = {
   first: css`
     color: #f2f4fe;
-    background: #ad1fea;
+    background-color: #ad1fea;
+    &:hover {
+      background-color: #c75af6;
+    }
   `,
   second: css`
     color: #f2f4fe;
-    background: #4661e6;
+    background-color: #4661e6;
+    &:hover {
+      background-color: #7c91f9;
+    }
   `,
   third: css`
     color: #f2f4fe;
-    background: #3a4374;
+    background-color: #3a4374;
+    &:hover {
+      background-color: #656ea3;
+    }
   `,
   fourth: css`
     color: #f2f4fe;
-    background: #d73737;
+    background-color: #d73737;
+    &:hover {
+      background-color: #e98888;
+    }
   `,
 };
 const WIDTH = {
@@ -49,6 +60,10 @@ export const Container = styled.button<ButtonProps>`
   outline: none;
 
   height: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   ${props => props.width && WIDTH[props.width]}
   ${props => props.color && COLOR[props.color]}

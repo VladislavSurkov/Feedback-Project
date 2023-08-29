@@ -1,24 +1,23 @@
 import styled from 'styled-components';
 
-
 export const SideBarWrap = styled.div`
-display: flex;
-flex-wrap: wrap;
-gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 
-width: 225px;
-height: 180px;
-box-sizing: border-box;
+  width: 225px;
+  height: 180px;
+  box-sizing: border-box;
 
-margin-bottom: 24px;
-padding: 24px ;
-border-radius: 10px;
-background: #fff;
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 10px;
+  background: #fff;
 `;
 
 export const Sidebar = styled.div`
-  color: #4661e6;
   height: 30px;
+  color: #4661e6;
   background-color: #f2f4ff;
   padding: 5px 16px;
   border-radius: 10px;
@@ -30,15 +29,14 @@ export const Sidebar = styled.div`
   }
 
   &:hover {
-    background-color: #4661e6;
-    color: #f2f4ff;
+    color: #4661e6;
+    background-color: #cfd7ff;
+    cursor: pointer;
   }
 `;
 
 export const SidebarText = styled.span`
-font-family: 'Jost';
-font-size: 13px;
-font-weight: 600;
-`
-
-
+  font-family: 'Jost';
+  font-size: 13px;
+  font-weight: 600;
+`;
