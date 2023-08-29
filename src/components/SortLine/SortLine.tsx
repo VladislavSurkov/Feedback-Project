@@ -1,10 +1,11 @@
 import { OnChangeValue } from 'react-select';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { SortItem } from 'selectItems/selectItems';
 import { IOption } from 'helpers/types/ItemsTypes';
-import { useAppDispatch } from 'hooks/useHooks';
+import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { setSortFilter } from 'redux/filters/filters-slice';
+import { setModal } from 'redux/modal/modal-slice';
 
 import Backdrop from 'components/Backdrop/Backdrop';
 import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
@@ -19,11 +20,13 @@ import {
   CustomOption,
 } from './Dropdown.styled';
 
-const SortLine: FC = () => {
-  const [isModal, setIsModal] = useState(false);
-  const modalOpen = () => setIsModal(true);
 
+const SortLine: FC = () => {
   const dispatch = useAppDispatch();
+  const { modal } = useTypedSelector(state => state.modal);
+
+  const modalOpen = () => dispatch(setModal(true));
+
   const sortProducts = (newValue: OnChangeValue<IOption, boolean>) =>
     dispatch(setSortFilter((newValue as IOption).value));
 
@@ -45,9 +48,9 @@ const SortLine: FC = () => {
       <Button onClick={modalOpen} color="first" width="openModal">
         + Add Feedback
       </Button>
-      {isModal && (
-        <Backdrop onClose={() => setIsModal(false)}>
-          <ModalAddFeedback onClose={() => setIsModal(false)} />
+      {modal && (
+        <Backdrop onClose={() => dispatch(setModal(false))}>
+          <ModalAddFeedback onClose={() => dispatch(setModal(false))} />
         </Backdrop>
       )}
     </SortBox>
