@@ -6,15 +6,12 @@ import {
   NoFoundCont,
 } from './NotFoundFeedback.styled';
 import { Button } from 'components/Buttons/Button';
-import Modal from 'components/Backdrop/Backdrop';
-import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
-import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
+import { useAppDispatch } from 'hooks/useHooks';
 import { setModal } from 'redux/modal/modal-slice';
 
 
 const NotFoundFeedback = () => {
   const dispatch = useAppDispatch();
-  const { modal } = useTypedSelector(state => state.modal);
 
   const modalOpen = () => dispatch(setModal(true));
 
@@ -30,11 +27,6 @@ const NotFoundFeedback = () => {
         <Button onClick={modalOpen} color="first" width="openModal">
           + Add Feedback
         </Button>
-        {modal && (
-          <Modal onClose={() => dispatch(setModal(false))}>
-            <ModalAddFeedback onClose={() => dispatch(setModal(false))} />
-          </Modal>
-        )}
       </NoFoundBox>
     </NoFoundCont>
   );
