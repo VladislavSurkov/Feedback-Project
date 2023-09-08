@@ -9,6 +9,7 @@ padding: 0 24px;
 export const ProductBox = styled.div`
   position: relative;
   background-color: #ffffff;
+  border-radius: 10px;
   margin-bottom: 16px;
   padding: 24px;
 `;
