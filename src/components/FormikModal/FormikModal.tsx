@@ -8,15 +8,12 @@ import { ISendProduct } from 'helpers/types/product';
 import { useAppDispatch } from 'hooks/useHooks';
 import { createProducts } from 'redux/todo/product-operations';
 import {
-  Category,
+  Placeholder,
   FeedbackTitle,
-  FormSelect,
   Input,
   InputDetails,
-  Label,
   Title,
 } from './FormikModal.styled';
-
 
 export const FormikModal = ({ onClose }: IPropsModal) => {
   const dispatch = useAppDispatch();
@@ -33,23 +30,25 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
 
   return (
     <>
-      <Title>Great new feedback</Title>
+      <Title>Create New Feedback</Title>
       <Formik
         validationSchema={AddFeedback}
         initialValues={initialValues}
         onSubmit={values => handleSubmit(values)}
       >
         <Form>
-          <FeedbackTitle htmlFor="title">Feedback Title</FeedbackTitle>
-          <Input
-            component="textarea"
-            name="title"
-            placeholder="Add a short, descriptive headline"
-          />
-          <Category htmlFor="category">Category</Category>
-          <FormSelect component="select" name="category">
+          <FeedbackTitle>Feedback Title</FeedbackTitle>
+          <Placeholder htmlFor="title">
+            Add a short, descriptive headline
+          </Placeholder>
+          <Input component="textarea" name="title" />
+          <FeedbackTitle>Category</FeedbackTitle>
+
+          <Placeholder htmlFor="category">
+            Choose a category for your feedback
+          </Placeholder>
+          <Input component="select" name="category">
             <option disabled value="">
-              Choose a category for your feedback
             </option>
             {categoriesItem &&
               categoriesItem.map(item => (
@@ -57,14 +56,13 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
                   {item.label}
                 </option>
               ))}
-          </FormSelect>
-          <Label htmlFor="description">Feedback Detail</Label>
-          <InputDetails
-            component="textarea"
-            name="description"
-            placeholder="Include any specific comments on what should be improved, added,
-            etc."
-          />
+          </Input>
+          <FeedbackTitle>Feedback Detail</FeedbackTitle>
+          <Placeholder htmlFor="description">
+            Include any specific comments on what should be improved, added,
+            etc.
+          </Placeholder>
+          <InputDetails component="textarea" name="description" />
           <Button type="submit" color="first" width="addSave">
             Add
           </Button>

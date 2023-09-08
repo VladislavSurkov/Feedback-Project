@@ -10,6 +10,6 @@ export const StyledPlusIcon = styled(PlusIcon)`
 
 export const Box = styled.div`
   position: relative;
-  padding: 64px 24px 24px 24px;
+  padding: 44px 24px 24px;
   background-color: #fff;
 `;
