@@ -1,19 +1,13 @@
 import { Form, Formik } from 'formik';
-
+import { useAppDispatch } from 'hooks/useHooks';
+import { createProducts } from 'redux/todo/product-operations';
 import { Button } from 'components/Buttons/Button';
 import { categoriesItem } from 'selectItems/selectItems';
+
 import { AddFeedback } from 'helpers/schemas/addFeedback';
 import { IPropsModal } from 'helpers/types/modal';
 import { ISendProduct } from 'helpers/types/product';
-import { useAppDispatch } from 'hooks/useHooks';
-import { createProducts } from 'redux/todo/product-operations';
-import {
-  Placeholder,
-  FeedbackTitle,
-  Input,
-  InputDetails,
-  Title,
-} from './FormikModal.styled';
+import { Placeholder, FeedbackTitle, Input, InputDetails, Title } from './FormikModal.styled';
 
 export const FormikModal = ({ onClose }: IPropsModal) => {
   const dispatch = useAppDispatch();
@@ -48,8 +42,7 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
             Choose a category for your feedback
           </Placeholder>
           <Input component="select" name="category">
-            <option disabled value="">
-            </option>
+            <option disabled value=""></option>
             {categoriesItem &&
               categoriesItem.map(item => (
                 <option key={item.value} value={item.label}>
