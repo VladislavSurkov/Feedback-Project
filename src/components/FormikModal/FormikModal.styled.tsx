@@ -45,8 +45,6 @@ export const Input = styled(Field)`
   color: #3a4374;
 `;
 
-
-
 export const InputDetails = styled(Field)`
    font-family: 'Jost';
   font-size: 13px;
