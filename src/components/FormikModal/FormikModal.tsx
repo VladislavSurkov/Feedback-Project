@@ -9,6 +9,7 @@ import { IPropsModal } from 'helpers/types/modal';
 import { ISendProduct } from 'helpers/types/product';
 import { Placeholder, FeedbackTitle, Input, InputDetails, Title } from './FormikModal.styled';
 
+
 export const FormikModal = ({ onClose }: IPropsModal) => {
   const dispatch = useAppDispatch();
   const initialValues = {
