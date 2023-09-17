@@ -11,7 +11,8 @@ import { Placeholder, FeedbackTitle, Input, InputDetails, Title } from './Formik
 
 
 export const FormikModal = ({ onClose }: IPropsModal) => {
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch(); 
+  
   const initialValues = {
     title: '',
     description: '',
