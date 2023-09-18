@@ -7,7 +7,7 @@ import { categoriesItem } from 'selectItems/selectItems';
 import { AddFeedback } from 'helpers/schemas/addFeedback';
 import { IPropsModal } from 'helpers/types/modal';
 import { ISendProduct } from 'helpers/types/product';
-import { Placeholder, FeedbackTitle, Input, InputDetails, Title } from './FormikModal.styled';
+import { Placeholder, FeedbackTitle, Input, InputDetails } from './FormikModal.styled';
 
 
 export const FormikModal = ({ onClose }: IPropsModal) => {
@@ -26,7 +26,6 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
 
   return (
     <>
-      <Title>Create New Feedback</Title>
       <Formik
         validationSchema={AddFeedback}
         initialValues={initialValues}

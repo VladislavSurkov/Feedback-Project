@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
 
-export const Title = styled.h2`
-  font-family: 'Jost';
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.25px;
 
-  color: #3a4374;
-  margin-bottom: 24px;
-`;
 
 export const FeedbackTitle = styled.h3`
   font-family: 'Jost';
@@ -29,11 +21,11 @@ export const Placeholder = styled.label`
 export const Input = styled(Field)`
   font-family: 'Jost';
   font-size: 13px;
-
   font-weight: 400;
 
   width: 100%;
   height: 48px;
+  resize: none;
 
   padding: 8px;
   margin-top: 16px;
@@ -46,10 +38,10 @@ export const Input = styled(Field)`
 `;
 
 export const InputDetails = styled(Field)`
-   font-family: 'Jost';
+  font-family: 'Jost';
   font-size: 13px;
-
   font-weight: 400;
+  resize: none;
 
   width: 100%;
   height: 120px;
