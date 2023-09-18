@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Backdrop = styled.div`
+export const BackdropCont = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@ export const Backdrop = styled.div`
   background-color: #f7f8fd;
 `;
 
-export const ModalContainer = styled.div`
+export const ModalCont = styled.div`
   min-width: 350px;
   min-height: 800px;
   padding: 34px 24px;
