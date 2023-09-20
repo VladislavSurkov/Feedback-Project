@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { Field } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 
-
+export const BoxInput = styled.div`
+  position: relative;
+  margin-bottom: 24px;
+`;
 
 export const FeedbackTitle = styled.h3`
   font-family: 'Jost';
@@ -18,40 +21,35 @@ export const Placeholder = styled.label`
   font-weight: 400;
 `;
 
-export const Input = styled(Field)`
+export const Input = styled(Field)<{ name: string; error: string }>`
   font-family: 'Jost';
   font-size: 13px;
   font-weight: 400;
-
-  width: 100%;
-  height: 48px;
+  box-sizing: border-box;
   resize: none;
+  width: 100%;
+  height: ${props => (props.name === 'description' ? '120px' : '48px')};
 
   padding: 8px;
   margin-top: 16px;
-  margin-bottom: 24px;
 
-  border: none;
+  border: ${props => (props.error ? ' 1px solid #D73737;' : 'none')};
   border-radius: 5px;
+  outline: none;
+
   background-color: #f7f8fd;
   color: #3a4374;
+
+  &:focus {
+    border: 1px solid #4661e6;
+  }
 `;
 
-export const InputDetails = styled(Field)`
+export const ErrorMsg = styled(ErrorMessage)`
+  position: absolute;
   font-family: 'Jost';
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
-  resize: none;
 
-  width: 100%;
-  height: 120px;
-
-  padding: 8px;
-  margin-top: 16px;
-  margin-bottom: 24px;
-
-  border: none;
-  border-radius: 5px;
-  background-color: #f7f8fd;
-  color: #3a4374;
+  color: #d73737;
 `;
