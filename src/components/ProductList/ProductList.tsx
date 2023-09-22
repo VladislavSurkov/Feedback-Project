@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import { TbMessageCircle2Filled, TbChevronUp } from 'react-icons/tb';
-
 import { IProductProps } from 'helpers/types/product';
-
 import {
   ProductBox,
   ProductDesc,
@@ -15,6 +13,15 @@ import {
 
 
 const ProductList: FC<IProductProps> = ({ products }) => {
+
+  const handleClick = (id: string) => {
+    const product = products.find(product => product._id === id);
+
+    if (product) {
+      console.log(product);
+    }
+  };
+
   return (
     <ListContainer>
       {products.map(product => (
@@ -31,7 +38,7 @@ const ProductList: FC<IProductProps> = ({ products }) => {
                 product.category.slice(1)}
             </ProductCategory>
           </div>
-          <ProductComments>
+          <ProductComments onClick={() => handleClick(product._id)}>
             <TbMessageCircle2Filled
               style={{ color: '#CDD2EE', marginRight: '4px' }}
             />
