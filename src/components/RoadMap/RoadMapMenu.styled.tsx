@@ -29,11 +29,14 @@ export const StatusMapLink = styled(Link)`
   font-family: 'Jost';
   font-size: 13px;
   font-weight: 600;
-  text-decoration-line: none;
+
+  border-bottom: 1px solid transparent;
+  margin-bottom: -2px;
+
   color: #4661e6;
 
   &:hover {
-    text-decoration-line: underline;
+    color: #8397f8;
   }
 `;
 
