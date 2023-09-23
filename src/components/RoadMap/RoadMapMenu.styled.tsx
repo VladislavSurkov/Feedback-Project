@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 export const StatusContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 225px;
-  height: 180px;
+  width: 223px;
   box-sizing: border-box;
-  padding: 24px;
+  padding: 19px 24px 24px;
   border-radius: 10px;
   background: #fff;
 `;
@@ -16,6 +15,7 @@ export const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
 `;
 
 export const StatusMapTitle = styled.h3`
@@ -44,11 +44,13 @@ export const RoadLi = styled.li<{ status: string }>`
   font-family: 'Jost';
   font-size: 16px;
   font-weight: 400;
-  
-  padding-left: 16px;
-  margin: 8px 0;
 
+  padding-left: 16px;
   color: #647196;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
 
   &::before {
     content: '';
