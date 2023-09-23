@@ -9,7 +9,7 @@ const RoadMap = () => {
   const navigate = useNavigate();
 
   const backTo = () => {
-    navigate(location.state?.from ?? '/movies');
+    navigate(location.state?.from ?? '/');
   };
 
   return (
