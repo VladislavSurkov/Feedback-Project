@@ -1,17 +1,13 @@
-import { OnChangeValue } from 'react-select';
 import { FC } from 'react';
+import { OnChangeValue } from 'react-select';
 
 import { SortItem } from 'selectItems/selectItems';
 import { IOption } from 'helpers/types/ItemsTypes';
-import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
+import { useAppDispatch } from 'hooks/useHooks';
 import { setSortFilter } from 'redux/filters/filters-slice';
 import { setModal } from 'redux/modal/modal-slice';
-
-import Backdrop from 'components/Backdrop/Backdrop';
-import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
 import DropdownSelect from 'components/Select/Select';
 import { Button } from 'components/Buttons/Button';
-
 import { SortBox, SortSpan } from './SortLine.styled';
 import {
   colorStyles,
@@ -20,10 +16,8 @@ import {
   CustomOption,
 } from './Dropdown.styled';
 
-
 const SortLine: FC = () => {
   const dispatch = useAppDispatch();
-  const { modal } = useTypedSelector(state => state.modal);
 
   const modalOpen = () => dispatch(setModal(true));
 
@@ -48,11 +42,6 @@ const SortLine: FC = () => {
       <Button onClick={modalOpen} color="first" width="openModal">
         + Add Feedback
       </Button>
-      {modal && (
-        <Backdrop onClose={() => dispatch(setModal(false))}>
-          <ModalAddFeedback onClose={() => dispatch(setModal(false))} />
-        </Backdrop>
-      )}
     </SortBox>
   );
 };

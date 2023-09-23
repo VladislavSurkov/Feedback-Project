@@ -6,18 +6,19 @@ import RoadMap from 'pages/RoadMap/RoadMap';
 import Registration from 'pages/Registration/Registration';
 import Login from 'pages/Login/Login';
 
-import { useAppDispatch } from 'hooks/useHooks';
+import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { fetchingCurrentUser } from 'redux/user/auth-operations';
 import {
   PrivateRoute,
   PublicRoute,
 } from 'components/PrivatPublicRoutes/PrivatPublicRoutes';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
-
-
+import Backdrop from 'components/Backdrop/Backdrop';
+import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
+  const { modal } = useTypedSelector(state => state.modal);
 
   useEffect(() => {
     dispatch(fetchingCurrentUser());
@@ -36,10 +37,19 @@ const App: FC = () => {
           <Route index element={<Suggestions />} />
         </Route>
 
-        <Route path="/roadmap" element={<PrivateRoute component={ <RoadMap/>} />} />
+        <Route
+          path="/roadmap"
+          element={<PrivateRoute component={<RoadMap />} />}
+        />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+
+      {modal && (
+        <Backdrop>
+          <ModalAddFeedback />
+        </Backdrop>
+      )}
     </>
   );
 };

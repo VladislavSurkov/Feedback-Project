@@ -1,13 +1,12 @@
+import { FC, useState } from 'react';
 import { Form, Formik } from 'formik';
 import { useAppDispatch } from 'hooks/useHooks';
 import { createProducts } from 'redux/todo/product-operations';
+import { setModal } from 'redux/modal/modal-slice';
 import { Button } from 'components/Buttons/Button';
 import { categoriesItem } from 'selectItems/selectItems';
-
 import { ModalFeedback } from 'helpers/schemas/ModalFeedback';
-import { IPropsModal } from 'helpers/types/modal';
 import { ISendProduct } from 'helpers/types/product';
-import { useState } from 'react';
 import {
   BoxInput,
   Placeholder,
@@ -22,9 +21,11 @@ const initialValues = {
   description: '',
 };
 
-export const FormikModal = ({ onClose }: IPropsModal) => {
+export const FormikModal: FC = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const dispatch = useAppDispatch();
+
+  const modalClose = () => dispatch(setModal(false));
 
   //  useEffect(() => {
   //    if (productData) {
@@ -38,7 +39,7 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
 
   const handleSubmit = (values: ISendProduct) => {
     dispatch(createProducts(values));
-    onClose();
+    dispatch(setModal(false));
 
     setFormValues(initialValues);
   };
@@ -109,7 +110,7 @@ export const FormikModal = ({ onClose }: IPropsModal) => {
               type="button"
               color="third"
               width="delete"
-              onClick={onClose}
+              onClick={modalClose}
             >
               Cancel
             </Button>
