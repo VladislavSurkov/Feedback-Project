@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as ArrowLeft } from 'icons/icon-arrow-left.svg';
 
 export const BackdropCont = styled.div`
   position: fixed;
@@ -23,4 +24,9 @@ export const BtnGoBack = styled.button`
   border: none;
   background: none;
   margin-bottom: 55px;
+`;
+
+export const ArrowLBtn = styled(ArrowLeft)`
+  margin-right: 15px;
+  stroke: #647196;
 `;

@@ -3,10 +3,19 @@ import ProductList from 'components/ProductList/ProductList';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { setModal } from 'redux/modal/modal-slice';
+import {
+  RoadLine,
+  BackCont,
+  RoadTitle,
+  BackBtn,
+  ArrowBtn,
+} from './RoadMap.styled';
 
 const RoadMap = () => {
   const dispatch = useAppDispatch();
   const { products, isLoading } = useTypedSelector(state => state.todo);
+
+  const modalOpen = () => dispatch(setModal(true));
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,19 +24,17 @@ const RoadMap = () => {
 
   return (
     <>
-      <div>
-        <div>
-          <button onClick={backTo}>Go Back</button>
-          <span>RoadMap</span>
-        </div>
-        <Button
-          onClick={() => dispatch(setModal(true))}
-          color="first"
-          width="openModal"
-        >
+      <RoadLine>
+        <BackCont>
+          <BackBtn onClick={backTo}>
+            <ArrowBtn /> Go Back
+          </BackBtn>
+          <RoadTitle>RoadMap</RoadTitle>
+        </BackCont>
+        <Button onClick={modalOpen} color="first" width="openModal">
           + Add Feedback
         </Button>
-      </div>
+      </RoadLine>
 
       {isLoading ? <div>Loading...</div> : <ProductList products={products} />}
     </>

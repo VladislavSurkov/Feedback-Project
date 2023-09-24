@@ -1,10 +1,15 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ReactComponent as ArrowLeft } from 'icons/icon-arrow-left.svg';
-import { BackdropCont, BtnGoBack, ModalCont } from './Backdrop.styled';
 import { IPropsModal } from 'helpers/types/modal';
 import { useAppDispatch } from 'hooks/useHooks';
 import { setModal } from 'redux/modal/modal-slice';
+import {
+  BackdropCont,
+  BtnGoBack,
+  ModalCont,
+  ArrowLBtn,
+} from './Backdrop.styled';
+
 
 const modalEl = document.getElementById('modal-root') as HTMLElement;
 const ESCAPE_KEY = 'Escape';
@@ -42,7 +47,7 @@ export default function Backdrop({ children }: IPropsModal) {
     <BackdropCont onClick={handleBackdropCloseModal}>
       <ModalCont>
         <BtnGoBack onClick={modalClose}>
-          <ArrowLeft style={{ marginRight: '16px' }} /> Go Back
+          <ArrowLBtn /> Go Back
         </BtnGoBack>
         {children}
       </ModalCont>
