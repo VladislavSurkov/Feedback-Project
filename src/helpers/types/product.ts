@@ -3,6 +3,7 @@ type Comments = {
     content: string,
     user: any[]
 }
+
 type Owner = {
     _id: string,
     name: string
@@ -13,7 +14,7 @@ export interface IProduct {
     title: string
     category: string,
     upvotes: number,
-    status: string,
+    status: 'Planned' | 'In-Progress' | 'Live',
     description: string,
     comments?: Comments[],
     owner: Owner
@@ -37,4 +38,10 @@ export interface ITodoState {
 
 export interface IProductProps {
     products: IProduct[];
+}
+
+export interface ISortProduct {
+    'Planned': IProduct[],
+    'In-Progress': IProduct[],
+    'Live': IProduct[],
 }

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { setSidebar } from 'redux/modal/modal-slice';
 import SideBarMenu from '../SideBarMenu/SideBarMenu';
-import RoadMapMenu from '../RoadMap/RoadMapMenu';
+import RoadMapMenu from '../RoadMapMenu/RoadMapMenu';
 import {
   SaidBarBox,
   SaidBarList,

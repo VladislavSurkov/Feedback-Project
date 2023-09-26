@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { setSidebar } from 'redux/modal/modal-slice';
+import { getStatusCounts } from 'helpers/sorting/sortStatus';
 import {
   StatusContainer,
   StatusMapTitle,
@@ -11,21 +12,12 @@ import {
 } from './RoadMapMenu.styled';
 
 
+
 const RoadMapMenu: FC = () => {
   const dispatch = useAppDispatch();
   const { products } = useTypedSelector(state => state.todo);
 
-  const statusCounts = products.reduce(
-    (counts, product) => {
-      counts[product.status]++;
-      return counts;
-    },
-    {
-      'Planned': 0,
-      'In-Progress': 0,
-      'Live': 0,
-    } as Record<string, number>
-  );
+  const statusCounts = getStatusCounts(products);
 
   return (
     <StatusContainer>
