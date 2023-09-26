@@ -13,7 +13,6 @@ import {
   CloseMenu,
 } from './SideBar.styled';
 
-
 const SideBar: FC = () => {
   const dispatch = useAppDispatch();
   const { sidebar } = useTypedSelector(state => state.modal);
@@ -21,6 +20,12 @@ const SideBar: FC = () => {
 
   const showSideBar = () => {
     dispatch(setSidebar(!sidebar));
+  };
+
+  const handleSideBarClose = ({ target, currentTarget }: React.MouseEvent) => {
+    if (target === currentTarget) {
+      showSideBar();
+    }
   };
 
   return (
@@ -35,7 +40,10 @@ const SideBar: FC = () => {
         </NavIcon>
       </SaidBarBox>
 
-      <SaidBarBackDrop sidebar={sidebar ? 1 : undefined}>
+      <SaidBarBackDrop
+        onClick={handleSideBarClose}
+        sidebar={sidebar ? 1 : undefined}
+      >
         <SaidBarNav sidebar={sidebar ? 1 : undefined}>
           <SideBarMenu />
           <RoadMapMenu />

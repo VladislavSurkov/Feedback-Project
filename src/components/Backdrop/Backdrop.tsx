@@ -24,7 +24,7 @@ export default function Backdrop({ children }: IPropsModal) {
     currentTarget,
   }: React.MouseEvent) => {
     if (target === currentTarget) {
-      dispatch(setModal(false));
+      modalClose();
     }
   };
 
