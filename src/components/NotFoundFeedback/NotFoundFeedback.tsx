@@ -1,4 +1,4 @@
-import NoFoundIcon from '../../images/svg/no-found.svg';
+import NoFoundIcon from '../../icons/svg/no-found.svg';
 import {
   NoFoundBox,
   NoFoundText,
