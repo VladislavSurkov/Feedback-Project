@@ -14,6 +14,8 @@ import {
 
 const ProductList: FC<IProductProps> = ({ products }) => {
 
+  const reversedProducts = [...products].reverse();
+
   const handleClick = (id: string) => {
     const product = products.find(product => product._id === id);
 
@@ -24,7 +26,7 @@ const ProductList: FC<IProductProps> = ({ products }) => {
 
   return (
     <ListContainer>
-      {products.map(product => (
+      {reversedProducts.map(product => (
         <ProductBox key={product._id}>
           <ProductUpvote>
             <TbChevronUp style={{ color: '#4661E6', marginRight: '10px' }} />
