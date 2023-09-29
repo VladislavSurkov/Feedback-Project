@@ -1,10 +1,10 @@
 import styled  from 'styled-components';
 
-   const statusColors = {
-     'Planned': '#F49F85',
-     'In-Progress': '#AD1FEA',
-     'Live': '#62BCFA',
-   };
+  const statusColors = {
+    'Planned': '#F49F85',
+    'In-Progress': '#AD1FEA',
+    'Live': '#62BCFA',
+  };
 
 
 export const NavStatusCont = styled.div`
@@ -37,12 +37,7 @@ export const NavStatusBtn = styled.button`
       position: absolute;
       bottom: 0;
       left: 0;
-
-      ${({ color }) =>
-        color &&
-        `background-color: ${
-          statusColors[color as keyof typeof statusColors]
-        };`}
+      ${({ color }) =>color && `background-color:${statusColors[color as keyof typeof statusColors]}`}
     }
   }
 `;
