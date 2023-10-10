@@ -1,3 +1,5 @@
+import { sortValue } from "helpers/sorting/sortStatus";
+
 type Comments = {
     _id: string,
     content: string,
@@ -8,6 +10,12 @@ type Owner = {
     _id: string,
     name: string
 }
+
+export type SortValue = {
+    Planned: "Planned";
+    InProgress: "In-Progress";
+    Live: "Live";
+};
 
 export interface IProduct {
     _id: string;
@@ -41,7 +49,7 @@ export interface IProductProps {
 }
 
 export interface ISortProduct {
-    'Planned': IProduct[],
-    'In-Progress': IProduct[],
-    'Live': IProduct[],
+    [sortValue.Planned]: IProduct[],
+    [sortValue.InProgress]: IProduct[],
+    [sortValue.Live]: IProduct[],
 }

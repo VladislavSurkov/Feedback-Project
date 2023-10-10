@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import ProductList from 'components/ProductList/ProductList';
-import { getStatusCounts } from 'helpers/sorting/sortStatus';
+import { getStatusCounts, sortValue } from 'helpers/sorting/sortStatus';
 import { useTypedSelector } from 'hooks/useHooks';
 import { NavStatusBtn, NavStatusCont } from './RoadMapList.styled';
 import { ISortProduct } from 'helpers/types/product';
@@ -13,9 +13,9 @@ const RoadMapList: FC = () => {
   const statusCounts = getStatusCounts(products);
 
   const productsByStatus: ISortProduct = {
-    'Planned': [],
-    'In-Progress': [],
-    'Live': [],
+    [sortValue.Planned]: [],
+    [sortValue.InProgress]: [],
+    [sortValue.Live]: [],
   };
 
   products.forEach(product => {
@@ -45,6 +45,13 @@ const RoadMapList: FC = () => {
 
       {Object.entries(productsByStatus).map(([status, productList]) => (
         <div key={status}>
+          <div>
+            <h3>
+              {status} ({productList.length})
+            </h3>
+            <span>text</span>
+          </div>
+
           <ProductList products={productList} />
         </div>
       ))}

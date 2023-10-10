@@ -1,4 +1,10 @@
-import { IProduct } from "helpers/types/product";
+import { IProduct, SortValue } from "helpers/types/product";
+
+export const sortValue: SortValue = {
+    Planned: 'Planned',
+    InProgress: 'In-Progress',
+    Live: 'Live',
+}
 
 export const getStatusCounts = (products: IProduct[]) => {
 
@@ -8,9 +14,9 @@ export const getStatusCounts = (products: IProduct[]) => {
             return counts;
         },
         {
-            'Planned': 0,
-            'In-Progress': 0,
-            'Live': 0,
+            [sortValue.Planned]: 0,
+            [sortValue.InProgress]: 0,
+            [sortValue.Live]: 0,
         } as Record<string, number>
     );
 

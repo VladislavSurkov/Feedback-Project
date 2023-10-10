@@ -15,14 +15,24 @@ import {
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import Backdrop from 'components/Backdrop/Backdrop';
 import ModalAddFeedback from 'components/ModalAddFeedback/ModalAddFeedback';
+import { fetchProducts } from 'redux/todo/product-operations';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
-  const { modal } = useTypedSelector(state => state.modal);
+  const {
+    auth: { user },
+    modal: { modal },
+  } = useTypedSelector(state => state);
 
   useEffect(() => {
     dispatch(fetchingCurrentUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (user.email) {
+      dispatch(fetchProducts());
+    }
+  }, [user, dispatch]);
 
   return (
     <>
