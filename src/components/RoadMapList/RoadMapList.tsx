@@ -2,8 +2,12 @@ import { FC, useState } from 'react';
 import ProductList from 'components/ProductList/ProductList';
 import { getStatusCounts, sortValue } from 'helpers/sorting/sortStatus';
 import { useTypedSelector } from 'hooks/useHooks';
-import { NavStatusBtn, NavStatusCont } from './RoadMapList.styled';
 import { ISortProduct } from 'helpers/types/product';
+import {
+  NavStatusBtn,
+  NavStatusCont,
+  SortProductCont,
+} from './RoadMapList.styled';
 
 
 const RoadMapList: FC = () => {
@@ -44,7 +48,10 @@ const RoadMapList: FC = () => {
       </NavStatusCont>
 
       {Object.entries(productsByStatus).map(([status, productList]) => (
-        <div key={status}>
+        <SortProductCont
+          key={status}
+          className={activeStatus === status ? 'active' : ''}
+        >
           <div>
             <h3>
               {status} ({productList.length})
@@ -53,7 +60,7 @@ const RoadMapList: FC = () => {
           </div>
 
           <ProductList products={productList} />
-        </div>
+        </SortProductCont>
       ))}
     </>
   );

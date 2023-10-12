@@ -1,18 +1,16 @@
-import styled  from 'styled-components';
+import styled from 'styled-components';
 
-  const statusColors = {
-    'Planned': '#F49F85',
-    'In-Progress': '#AD1FEA',
-    'Live': '#62BCFA',
-  };
-
+const statusColors = {
+  Planned: '#F49F85',
+  'In-Progress': '#AD1FEA',
+  Live: '#62BCFA',
+};
 
 export const NavStatusCont = styled.div`
   display: flex;
   height: 60px;
   border-bottom: 1px solid #8c92b33f;
 `;
-
 
 export const NavStatusBtn = styled.button`
   color: #3a4374;
@@ -37,7 +35,16 @@ export const NavStatusBtn = styled.button`
       position: absolute;
       bottom: 0;
       left: 0;
-      ${({ color }) =>color && `background-color:${statusColors[color as keyof typeof statusColors]}`}
+      ${({ color }) =>
+        color &&
+        `background-color:${statusColors[color as keyof typeof statusColors]}`}
     }
+  }
+`;
+
+export const SortProductCont = styled.div`
+  display: none;
+  &.active {
+    display: flex;
   }
 `;
