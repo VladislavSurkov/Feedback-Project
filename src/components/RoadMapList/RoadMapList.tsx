@@ -10,6 +10,13 @@ import {
 } from './RoadMapList.styled';
 
 
+const statusDescript = {
+  [sortValue.Planned]: 'Ideas prioritized for research',
+  [sortValue.InProgress]: 'Currently being developed',
+  [sortValue.Live]: 'Released features',
+};
+
+
 const RoadMapList: FC = () => {
   const [activeStatus, setActiveStatus] = useState('In-Progress');
 
