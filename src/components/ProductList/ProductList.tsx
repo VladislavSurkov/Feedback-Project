@@ -8,37 +8,37 @@ import {
   ProductTitle,
   ProductUpvote,
   ProductComments,
+  ProductStatus,
 } from './ProductList.styled';
 
-
-const ProductList: FC<IProductProps> = ({ products }) => {
-
+const ProductList: FC<IProductProps> = ({ status, products }) => {
   const reversedProducts = [...products].reverse();
 
   const handleClick = (id: string) => {
     const product = products.find(product => product._id === id);
 
     if (product) {
-      console.log(product);
+      console.log( product);
     }
   };
 
   return (
     <>
       {reversedProducts.map(product => (
-        <ProductBox key={product._id}>
+        <ProductBox key={product._id} color={status}>
           <ProductUpvote>
             <TbChevronUp style={{ color: '#4661E6', marginRight: '10px' }} />
             {product.upvotes}
           </ProductUpvote>
-          <div>
-            <ProductTitle>{product.title}</ProductTitle>
-            <ProductDesc>{product.description}</ProductDesc>
-            <ProductCategory>
-              {product.category.charAt(0).toUpperCase() +
-                product.category.slice(1)}
-            </ProductCategory>
-          </div>
+
+          {status? (<ProductStatus status={status}>{status}</ProductStatus>): null}
+          <ProductTitle>{product.title}</ProductTitle>
+          <ProductDesc>{product.description}</ProductDesc>
+          <ProductCategory>
+            {product.category.charAt(0).toUpperCase() +
+              product.category.slice(1)}
+          </ProductCategory>
+
           <ProductComments onClick={() => handleClick(product._id)}>
             <TbMessageCircle2Filled
               style={{ color: '#CDD2EE', marginRight: '4px' }}

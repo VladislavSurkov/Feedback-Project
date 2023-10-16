@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import { sortValue } from 'helpers/sorting/sortStatus';
+import { statusColors } from 'helpers/Values/Values';
 
-const statusColors = {
-  [sortValue.Planned]: '#F49F85',
-  [sortValue.InProgress]: '#AD1FEA',
-  [sortValue.Live]: '#62BCFA',
-};
+
 
 export const NavStatusCont = styled.div`
   display: flex;

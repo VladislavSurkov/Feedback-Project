@@ -1,4 +1,5 @@
-import { sortValue } from "helpers/sorting/sortStatus";
+import { objStatusValue } from "helpers/Values/Values";
+
 
 type Comments = {
     _id: string,
@@ -11,7 +12,9 @@ type Owner = {
     name: string
 }
 
-export type SortValue = {
+export type StatusValue = 'Planned' | 'In-Progress' | 'Live';
+
+export type ObjStatusValue = {
     Planned: "Planned";
     InProgress: "In-Progress";
     Live: "Live";
@@ -22,7 +25,7 @@ export interface IProduct {
     title: string
     category: string,
     upvotes: number,
-    status: 'Planned' | 'In-Progress' | 'Live',
+    status: StatusValue,
     description: string,
     comments?: Comments[],
     owner: Owner
@@ -45,11 +48,12 @@ export interface ITodoState {
 }
 
 export interface IProductProps {
+    status?: StatusValue,
     products: IProduct[];
 }
 
 export interface ISortProduct {
-    [sortValue.Planned]: IProduct[],
-    [sortValue.InProgress]: IProduct[],
-    [sortValue.Live]: IProduct[],
+    [objStatusValue.Planned]: IProduct[],
+    [objStatusValue.InProgress]: IProduct[],
+    [objStatusValue.Live]: IProduct[],
 }

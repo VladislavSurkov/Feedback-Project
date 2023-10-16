@@ -1,8 +1,9 @@
 import { FC, useState } from 'react';
 import ProductList from 'components/ProductList/ProductList';
-import { getStatusCounts, sortValue } from 'helpers/sorting/sortStatus';
+import { getStatusCounts } from 'helpers/sorting/sortStatus';
 import { useTypedSelector } from 'hooks/useHooks';
-import { ISortProduct } from 'helpers/types/product';
+import { ISortProduct, StatusValue } from 'helpers/types/product';
+import { objStatusValue, statusDescript } from 'helpers/Values/Values';
 import {
   NavStatusBtn,
   NavStatusCont,
@@ -13,34 +14,26 @@ import {
 } from './RoadMapList.styled';
 
 
-const statusDescript = {
-  [sortValue.Planned]: 'Ideas prioritized for research',
-  [sortValue.InProgress]: 'Currently being developed',
-  [sortValue.Live]: 'Released features',
-};
 
 
 const RoadMapList: FC = () => {
-  const [activeStatus, setActiveStatus] = useState('In-Progress');
+  const [activeStatus, setActiveStatus] = useState<StatusValue>('In-Progress');
 
   const { products } = useTypedSelector(state => state.todo);
   const statusCounts = getStatusCounts(products);
 
   const productsByStatus: ISortProduct = {
-    [sortValue.Planned]: [],
-    [sortValue.InProgress]: [],
-    [sortValue.Live]: [],
+    [objStatusValue.Planned]: [],
+    [objStatusValue.InProgress]: [],
+    [objStatusValue.Live]: [],
   };
 
   products.forEach(product => {
-    productsByStatus[product.status as keyof typeof productsByStatus].push(
-      product
-    );
+    const productStatus = product.status as keyof typeof productsByStatus;
+    if (productsByStatus[productStatus]) {
+      productsByStatus[productStatus].push(product);
+    }
   });
-
-  const handleStatusClick = (status: string) => {
-    setActiveStatus(status);
-  };
 
   return (
     <>
@@ -48,7 +41,7 @@ const RoadMapList: FC = () => {
         {Object.entries(statusCounts).map(([status, count]) => (
           <NavStatusBtn
             key={status}
-            onClick={() => handleStatusClick(status)}
+            onClick={() => setActiveStatus(status as StatusValue)}
             className={activeStatus === status ? 'active' : ''}
             color={status}
           >
@@ -57,19 +50,21 @@ const RoadMapList: FC = () => {
         ))}
       </NavStatusCont>
 
-      {Object.entries(productsByStatus).map(([status, productList]) => (
+      {Object.entries(productsByStatus).map(([status, product]) => (
         <SortProductCont
           key={status}
           className={activeStatus === status ? 'active' : ''}
         >
           <TitleCont>
             <StatusTitle>
-              {status} ({productList.length})
+              {status} ({product.length})
             </StatusTitle>
-            <StatusDesc>{statusDescript[status as keyof typeof statusDescript]}</StatusDesc>
+            <StatusDesc>
+              {statusDescript[status as keyof typeof statusDescript]}
+            </StatusDesc>
           </TitleCont>
 
-          <ProductList products={productList} />
+          <ProductList status={status as StatusValue} products={product} />
         </SortProductCont>
       ))}
     </>

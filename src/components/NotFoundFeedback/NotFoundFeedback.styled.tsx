@@ -13,6 +13,7 @@ export const NoFoundBox = styled.div`
   width: 278px;
   height: 308px;
   padding: 76px 25px;
+  border-radius: 10px;
 `;
 
 export const NoFoundTitle = styled.h2`

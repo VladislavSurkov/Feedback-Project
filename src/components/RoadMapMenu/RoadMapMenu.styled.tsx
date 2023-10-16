@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { statusColors } from 'helpers/Values/Values';
 
 export const StatusContainer = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ export const RoadLi = styled.li<{ status: string }>`
   font-size: 16px;
   font-weight: 400;
 
-  padding-left: 16px;
+  padding-left: 24px;
   color: #647196;
 
   &:not(:last-child) {
@@ -64,18 +65,11 @@ export const RoadLi = styled.li<{ status: string }>`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: ${props => {
-      switch (props.status) {
-        case 'Planned':
-          return '#F49F85';
-        case 'In-Progress':
-          return '#AD1FEA';
-        case 'Live':
-          return '#62BCFA';
-        default:
-          return;
-      }
-    }};
+    ${props =>
+      props.status &&
+      `background-color:${
+        statusColors[props.status as keyof typeof statusColors]
+      }`}
   }
 `;
 
