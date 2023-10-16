@@ -1,4 +1,4 @@
-import { objStatusValue } from "helpers/Values/Values";
+import { objStatusValue } from "helpers/items/statusItems";
 import { IProduct, StatusValue } from "helpers/types/product";
 
 

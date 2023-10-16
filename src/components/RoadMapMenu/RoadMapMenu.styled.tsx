@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { statusColors } from 'helpers/Values/Values';
+import { statusColors } from 'helpers/items/statusItems';
 
 export const StatusContainer = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import ProductList from 'components/ProductList/ProductList';
 import { getStatusCounts } from 'helpers/sorting/sortStatus';
 import { useTypedSelector } from 'hooks/useHooks';
 import { ISortProduct, StatusValue } from 'helpers/types/product';
-import { objStatusValue, statusDescript } from 'helpers/Values/Values';
+import { objStatusValue, statusDescript } from 'helpers/items/statusItems';
 import {
   NavStatusBtn,
   NavStatusCont,
@@ -12,9 +12,6 @@ import {
   StatusTitle,
   TitleCont,
 } from './RoadMapList.styled';
-
-
-
 
 const RoadMapList: FC = () => {
   const [activeStatus, setActiveStatus] = useState<StatusValue>('In-Progress');

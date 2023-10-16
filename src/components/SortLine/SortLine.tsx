@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { OnChangeValue } from 'react-select';
 
-import { SortItem } from 'selectItems/selectItems';
+import { SortItem } from 'helpers/items/selectItems';
 import { IOption } from 'helpers/types/ItemsTypes';
 import { useAppDispatch } from 'hooks/useHooks';
 import { setSortFilter } from 'redux/filters/filters-slice';

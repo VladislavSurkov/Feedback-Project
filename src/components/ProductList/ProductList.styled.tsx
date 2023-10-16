@@ -1,4 +1,4 @@
-import { statusColors } from 'helpers/Values/Values';
+import { statusColors } from 'helpers/items/statusItems';
 import styled from 'styled-components';
 
 export const ProductBox = styled.div`

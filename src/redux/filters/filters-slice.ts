@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SidebarData,  } from "selectItems/selectItems";
+import { SidebarData, } from "helpers/items/selectItems";
 
 
 const initialState = {

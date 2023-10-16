@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { statusColors } from 'helpers/Values/Values';
-
-
+import { statusColors } from 'helpers/items/statusItems';
 
 export const NavStatusCont = styled.div`
   display: flex;
