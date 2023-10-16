@@ -7,6 +7,9 @@ import {
   NavStatusBtn,
   NavStatusCont,
   SortProductCont,
+  StatusDesc,
+  StatusTitle,
+  TitleCont,
 } from './RoadMapList.styled';
 
 
@@ -59,12 +62,12 @@ const RoadMapList: FC = () => {
           key={status}
           className={activeStatus === status ? 'active' : ''}
         >
-          <div>
-            <h3>
+          <TitleCont>
+            <StatusTitle>
               {status} ({productList.length})
-            </h3>
-            <span>text</span>
-          </div>
+            </StatusTitle>
+            <StatusDesc>{statusDescript[status as keyof typeof statusDescript]}</StatusDesc>
+          </TitleCont>
 
           <ProductList products={productList} />
         </SortProductCont>

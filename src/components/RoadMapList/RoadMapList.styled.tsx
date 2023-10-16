@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { sortValue } from 'helpers/sorting/sortStatus';
 
 const statusColors = {
-  Planned: '#F49F85',
-  'In-Progress': '#AD1FEA',
-  Live: '#62BCFA',
+  [sortValue.Planned]: '#F49F85',
+  [sortValue.InProgress]: '#AD1FEA',
+  [sortValue.Live]: '#62BCFA',
 };
 
 export const NavStatusCont = styled.div`
@@ -45,7 +46,26 @@ export const NavStatusBtn = styled.button`
 export const SortProductCont = styled.div`
   display: none;
   flex-direction: column;
+  padding: 0 24px;
   &.active {
     display: flex;
   }
+`;
+
+export const TitleCont = styled.div`
+  font-family: 'Jost';
+  margin: 24px 0;
+`;
+
+export const StatusTitle = styled.h3`
+  color: #3a4374;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+`;
+
+export const StatusDesc = styled.span`
+  color: #647196;
+  font-size: 13px;
+  font-weight: 400;
 `;
