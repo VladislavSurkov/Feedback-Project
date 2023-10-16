@@ -8,7 +8,6 @@ import {
   ProductTitle,
   ProductUpvote,
   ProductComments,
-  ListContainer,
 } from './ProductList.styled';
 
 
@@ -25,7 +24,7 @@ const ProductList: FC<IProductProps> = ({ products }) => {
   };
 
   return (
-    <ListContainer>
+    <>
       {reversedProducts.map(product => (
         <ProductBox key={product._id}>
           <ProductUpvote>
@@ -48,7 +47,7 @@ const ProductList: FC<IProductProps> = ({ products }) => {
           </ProductComments>
         </ProductBox>
       ))}
-    </ListContainer>
+    </>
   );
 };
 

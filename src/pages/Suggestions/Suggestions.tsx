@@ -1,4 +1,4 @@
-import {  useTypedSelector } from 'hooks/useHooks';
+import { useTypedSelector } from 'hooks/useHooks';
 import ProductList from 'components/ProductList/ProductList';
 import SortLine from 'components/SortLine/SortLine';
 import NotFoundFeedback from 'components/NotFoundFeedback/NotFoundFeedback';
@@ -6,6 +6,7 @@ import {
   getSortProducts,
   getStatusProducts,
 } from 'helpers/sorting/sortProducts';
+import { ListContainer } from './Suggesrions.styled';
 
 
 const Suggestions = () => {
@@ -17,18 +18,18 @@ const Suggestions = () => {
   const statusProducts = getStatusProducts(products, status);
   const sortProducts = getSortProducts(statusProducts, sort);
 
-
-
   return (
     <>
       <SortLine />
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : sortProducts.length ? (
-        <ProductList products={sortProducts} />
-      ) : (
-        <NotFoundFeedback />
-      )}
+      <ListContainer>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : sortProducts.length ? (
+          <ProductList products={sortProducts} />
+        ) : (
+          <NotFoundFeedback />
+        )}
+      </ListContainer>
     </>
   );
 };

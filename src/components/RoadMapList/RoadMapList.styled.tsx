@@ -44,6 +44,7 @@ export const NavStatusBtn = styled.button`
 
 export const SortProductCont = styled.div`
   display: none;
+  flex-direction: column;
   &.active {
     display: flex;
   }
