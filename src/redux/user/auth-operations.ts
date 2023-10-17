@@ -2,6 +2,8 @@ import axios, { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IOperationsUser, IUserState,IOperationsUserLogin } from 'helpers/types/user';
 import { IAppState } from 'helpers/types/appState';
+import Notiflix from 'notiflix';
+
 
 
 axios.defaults.baseURL = 'https://feedbacke-api-service.onrender.com';
@@ -23,6 +25,7 @@ export const register = createAsyncThunk<IUserState, IOperationsUser, { rejectVa
             setAuthHeader(data.token);
             return data;
         } catch (e) {
+            Notiflix.Notify.failure('Please change your email ore password and try again');
             return rejectWithValue('Please check your email and password and try again');
         }
     }
@@ -36,7 +39,8 @@ export const login = createAsyncThunk<IUserState, IOperationsUserLogin, { reject
             setAuthHeader(data.token);
             return data;
         } catch (e) {
-            return rejectWithValue('Please change your email ore name and try again');
+            Notiflix.Notify.failure('Please change your email ore password and try again');
+            return rejectWithValue('Please change your email ore password and try again');
         }
     });
 

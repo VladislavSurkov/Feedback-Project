@@ -49,16 +49,19 @@ const WIDTH = {
     //mobile
     width: 100%;
   `,
+  logout: css`
+    //mobile
+    width: 80px;
+  `,
 };
 
 export const Container = styled.button<ButtonProps>`
   font-family: 'Jost';
   font-weight: 700;
-  font-style: normal;
+  font-size: 13px;
   border: none;
   border-radius: 10px;
   outline: none;
-
   height: 40px;
 
   &:hover {

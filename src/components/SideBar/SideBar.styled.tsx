@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import imgMobile from '../../images/mobile/background-header.png';
-import { ReactComponent as NavBurger } from 'icons/mobile/icon-hamburger.svg';
-import { ReactComponent as NavClose } from 'icons/mobile/icon-close.svg';
+
 
 export const SaidBarBox = styled.div`
   display: flex;
@@ -58,7 +57,6 @@ export const SaidBarBackDrop = styled.div<{
   width: ${({ sidebar }) => (sidebar ? '100%' : '0')};
   height: 100%;
   background-color: #00000080;
-  
 `;
 
 export const SaidBarNav = styled.div<{
@@ -81,5 +79,8 @@ export const SaidBarNav = styled.div<{
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
-export const BurgerMenu = styled(NavBurger)``;
-export const CloseMenu = styled(NavClose)``;
+export const LogoutButton = styled.div`
+  margin-top: 54px;
+`;
+
+

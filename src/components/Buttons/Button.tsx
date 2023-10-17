@@ -8,9 +8,16 @@ export const Button = ({
   color,
   width,
   type,
+  disabled,
 }: ButtonProps) => {
   return (
-    <Container type={type} onClick={onClick} color={color} width={width}>
+    <Container
+      type={type}
+      onClick={onClick}
+      color={color}
+      width={width}
+      disabled={disabled}
+    >
       {children}
     </Container>
   );
