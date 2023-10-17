@@ -4,7 +4,7 @@ import SortLine from 'components/SortLine/SortLine';
 import NotFoundFeedback from 'components/NotFoundFeedback/NotFoundFeedback';
 import {
   getSortProducts,
-  getStatusProducts,
+  getCategoryProducts,
 } from 'helpers/sorting/sortProducts';
 import { ListContainer } from './Suggesrions.styled';
 
@@ -12,10 +12,10 @@ import { ListContainer } from './Suggesrions.styled';
 const Suggestions = () => {
   const {
     todo: { products, isLoading },
-    filters: { status, sort },
+    filters: { categories, sort },
   } = useTypedSelector(state => state);
 
-  const statusProducts = getStatusProducts(products, status);
+  const statusProducts = getCategoryProducts(products, categories);
   const sortProducts = getSortProducts(statusProducts, sort);
 
   return (

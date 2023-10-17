@@ -3,7 +3,7 @@ import { SidebarData, } from "helpers/items/selectItems";
 
 
 const initialState = {
-    status: SidebarData[0].value,
+    categories: SidebarData[0].value,
     sort: null
 };
 
@@ -11,8 +11,8 @@ const filtersSlice = createSlice({
     name: "filters",
     initialState,
     reducers: {
-        setStatusFilter(state, { payload }) {
-            state.status = payload;
+        setCategoriesFilter(state, { payload }) {
+            state.categories = payload;
         },
         setSortFilter(state, { payload }) {
             state.sort = payload;
@@ -20,5 +20,5 @@ const filtersSlice = createSlice({
     },
 });
 
-export const { setStatusFilter, setSortFilter } = filtersSlice.actions;
+export const { setCategoriesFilter, setSortFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

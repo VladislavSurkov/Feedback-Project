@@ -4,7 +4,7 @@ import { useAppDispatch } from 'hooks/useHooks';
 import { createProducts } from 'redux/todo/product-operations';
 import { setModal } from 'redux/modal/modal-slice';
 import { Button } from 'components/Buttons/Button';
-import { categoriesItem } from 'helpers/items/selectItems';
+import { CategoriesItem } from 'helpers/items/selectItems';
 import { ModalFeedback } from 'helpers/schemas/ModalFeedback';
 import { ISendProduct } from 'helpers/types/product';
 import {
@@ -79,10 +79,10 @@ export const FormikModal: FC = () => {
                 <option disabled value="">
                   {formValues.category}
                 </option>
-                {categoriesItem &&
-                  categoriesItem.map(item => (
-                    <option key={item.value} value={item.label}>
-                      {item.label}
+                {CategoriesItem &&
+                  CategoriesItem.map(item => (
+                    <option key={item.value} value={item.value}>
+                      {item.value}
                     </option>
                   ))}
               </Input>

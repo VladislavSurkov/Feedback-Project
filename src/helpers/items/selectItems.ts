@@ -1,53 +1,17 @@
 import { IOption } from "helpers/types/ItemsTypes";
 
-export const categoriesItem: IOption[] = [
-  {
-    value: 'ui',
-    label: 'UI',
-  },
-  {
-    value: 'ux',
-    label: 'UX',
-  },
-  {
-    value: 'enhancement',
-    label: 'Enhancement',
-  },
-  {
-    value: 'bug',
-    label: 'Bug',
-  },
-  {
-    value: 'feature',
-    label: 'Feature',
-  },
+export const CategoriesItem: IOption[] = [
+  { value: 'UI' },
+  { value: 'UX' },
+  { value: 'Enhancement' },
+  { value: 'Bug' },
+  { value: 'Feature' }
 ];
 
 export const SidebarData: IOption[] = [
-  {
-    value: 'All',
-    label: 'All',
-  },
-  {
-    value: 'UI',
-    label: 'UI',
-  },
-  {
-    value: 'UX',
-    label: 'UX',
-  },
-  {
-    value: 'Enhancement',
-    label: 'Enhancement',
-  },
-  {
-    value: 'Bug',
-    label: 'Bug',
-  },
-  {
-    value: 'Feature',
-    label: 'Feature',
-  },
+  { value: 'All' },
+  ...CategoriesItem
+
 ];
 
 export const SortItem: IOption[] = [

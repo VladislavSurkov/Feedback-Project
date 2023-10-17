@@ -31,7 +31,7 @@ const ProductList: FC<IProductProps> = ({ status, products }) => {
             {product.upvotes}
           </ProductUpvote>
 
-          {status? (<ProductStatus status={status}>{status}</ProductStatus>): null}
+          {status && (<ProductStatus status={status}>{status}</ProductStatus>)}
           <ProductTitle>{product.title}</ProductTitle>
           <ProductDesc>{product.description}</ProductDesc>
           <ProductCategory>
