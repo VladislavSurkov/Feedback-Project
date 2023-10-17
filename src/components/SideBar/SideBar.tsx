@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { setSidebar } from 'redux/modal/modal-slice';
-import SideBarMenu from '../SideBarMenu/SideBarMenu';
+import CategoriesMenu from '../CategoriesMenu/CategoriesMenu';
 import RoadMapMenu from '../RoadMapMenu/RoadMapMenu';
 import {
   SaidBarBox,
@@ -45,7 +45,7 @@ const SideBar: FC = () => {
         sidebar={sidebar ? 1 : undefined}
       >
         <SaidBarNav sidebar={sidebar ? 1 : undefined}>
-          <SideBarMenu />
+          <CategoriesMenu />
           <RoadMapMenu />
         </SaidBarNav>
       </SaidBarBackDrop>

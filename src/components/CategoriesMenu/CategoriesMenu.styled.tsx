@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SideBarWrap = styled.div`
+export const CategoriesWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -15,10 +15,18 @@ export const SideBarWrap = styled.div`
   background: #fff;
 `;
 
-export const Sidebar = styled.div`
+export const CategoriesBtn = styled.div`
+  display: flex;
+  align-items: center;
+
+  font-family: 'Jost';
+  font-size: 13px;
+  font-weight: 600;
+
   height: 30px;
   color: #4661e6;
   background-color: #f2f4ff;
+
   padding: 5px 16px;
   border-radius: 10px;
   text-decoration: none;
@@ -35,8 +43,3 @@ export const Sidebar = styled.div`
   }
 `;
 
-export const SidebarText = styled.span`
-  font-family: 'Jost';
-  font-size: 13px;
-  font-weight: 600;
-`;

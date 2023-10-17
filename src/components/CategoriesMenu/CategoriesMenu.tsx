@@ -1,11 +1,12 @@
 import { FC } from 'react';
-import { Sidebar, SidebarText, SideBarWrap } from './SideBarMenu.styled';
+import { CategoriesBtn, CategoriesWrap } from './CategoriesMenu.styled';
 import { SidebarData } from 'helpers/items/selectItems';
 import { useAppDispatch, useTypedSelector } from 'hooks/useHooks';
 import { setCategoriesFilter } from 'redux/filters/filters-slice';
 import { setSidebar } from 'redux/modal/modal-slice';
 
-const SideBarMenu: FC = () => {
+
+const CategoriesMenu: FC = () => {
   const dispatch = useAppDispatch();
   const { categories } = useTypedSelector(state => state.filters);
 
@@ -16,22 +17,22 @@ const SideBarMenu: FC = () => {
 
   return (
     <>
-      <SideBarWrap>
+      <CategoriesWrap>
         {SidebarData.map((item, index) => {
           const isSelected = categories === item.value;
           return (
-            <Sidebar
+            <CategoriesBtn
               key={index}
               onClick={() => showCategoriesFilter(item.value)}
               className={isSelected ? 'selected' : ''}
             >
-              <SidebarText>{item.value}</SidebarText>
-            </Sidebar>
+              {item.value}
+            </CategoriesBtn>
           );
         })}
-      </SideBarWrap>
+      </CategoriesWrap>
     </>
   );
 };
 
-export default SideBarMenu;
+export default CategoriesMenu;
