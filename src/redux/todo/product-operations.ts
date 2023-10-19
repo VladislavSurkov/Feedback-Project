@@ -30,3 +30,17 @@ export const createProducts = createAsyncThunk<ICreateProduct, ISendProduct, { r
     }
   }
 );
+
+export const toggleUpvote = createAsyncThunk<IProduct, IProduct, { rejectValue: string }>(
+  '/upvote',
+  async (product, thunkAPI) => {
+    try {
+      const { data } = await axios.post(`/tasks/votes/${product._id}`);
+      return data
+    } catch (e) {
+      if (e instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(e.response?.data.message);
+      }
+    }
+  }
+);
