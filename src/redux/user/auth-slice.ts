@@ -44,6 +44,7 @@ const authSlice = createSlice({
                     username: ''
                 };
             }).addCase(fetchingCurrentUser.fulfilled, (state, { payload }) => {
+                state.token = payload.token;
                 state.user = payload.user;
                 state.isLogin = true;
             }).addMatcher(

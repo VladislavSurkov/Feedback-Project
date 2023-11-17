@@ -6,8 +6,6 @@ import { IOperationsUser, IUserState, IOperationsUserLogin } from 'helpers/types
 import { IAppState } from 'helpers/types/appState';
 
 
-
-
 axios.defaults.baseURL = 'https://feedbacke-api-service.onrender.com';
 
 const token = {
@@ -25,15 +23,11 @@ const token = {
 
             const currentTime = Date.now() / 1000;
             return decodedToken.exp !== undefined && decodedToken.exp > currentTime;
-        } catch (error) {
-            console.error('Error decoding token:', error);
+        } catch (e) {
             return false;
         }
     },
 };
-
-
-
 
 export const register = createAsyncThunk<IUserState, IOperationsUser, { rejectValue: string }>(
     'auth/register',
@@ -82,23 +76,19 @@ export const fetchingCurrentUser = createAsyncThunk<IUserState, undefined, { rej
         const persistedToken = state.auth.token;
 
         try {
-            if (persistedToken !== null && token.isValid(persistedToken)) {
-                try {
-                    const { data } = await axios.post('/auth/refresh-token', {
-                        refreshToken: persistedToken,
-                    });
+            if (persistedToken && !token.isValid(persistedToken)) {
+                const { data } = await axios.post('/auth/refresh-token', {
+                    refreshToken: persistedToken,
+                });
 
-                    const newAccessToken = data.accessToken;
-                    token.set(newAccessToken);
-
-                    const userDataResponse = await axios.get('/user/current');
-                    return userDataResponse.data;
-                } catch (e) {
-                    if (e instanceof AxiosError) {
-                        return thunkAPI.rejectWithValue(e.response?.data.message);
-                    }
-                }
+                token.set(data.accessToken);
             }
+
+            if (persistedToken) token.set(persistedToken);
+
+            const { data } = await axios.get('/user/current');
+            return data;
+
         } catch (e) {
             if (e instanceof AxiosError) {
                 return thunkAPI.rejectWithValue(e.response?.data.message);
