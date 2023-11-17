@@ -1,20 +1,38 @@
 import axios, { AxiosError } from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IOperationsUser, IUserState,IOperationsUserLogin } from 'helpers/types/user';
-import { IAppState } from 'helpers/types/appState';
 import Notiflix from 'notiflix';
+import { jwtDecode } from 'jwt-decode';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { IOperationsUser, IUserState, IOperationsUserLogin } from 'helpers/types/user';
+import { IAppState } from 'helpers/types/appState';
+
 
 
 
 axios.defaults.baseURL = 'https://feedbacke-api-service.onrender.com';
 
-const setAuthHeader = (token: string) => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+const token = {
+    set(token: string) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = '';
+    },
+    isValid(token: string) {
+        if (!token || token.length === 0) return false;
+
+        try {
+            const decodedToken = jwtDecode(token);
+
+            const currentTime = Date.now() / 1000;
+            return decodedToken.exp !== undefined && decodedToken.exp > currentTime;
+        } catch (error) {
+            console.error('Error decoding token:', error);
+            return false;
+        }
+    },
 };
 
-const clearAuthHeader = () => {
-    axios.defaults.headers.common.Authorization = '';
-};
+
 
 
 export const register = createAsyncThunk<IUserState, IOperationsUser, { rejectValue: string }>(
@@ -22,7 +40,7 @@ export const register = createAsyncThunk<IUserState, IOperationsUser, { rejectVa
     async (user, { rejectWithValue }) => {
         try {
             const { data } = await axios.post('/auth/register', user);
-            setAuthHeader(data.token);
+            token.set(data.token);
             return data;
         } catch (e) {
             Notiflix.Notify.failure('Please change your email ore password and try again');
@@ -36,7 +54,7 @@ export const login = createAsyncThunk<IUserState, IOperationsUserLogin, { reject
     async (user, { rejectWithValue }) => {
         try {
             const { data } = await axios.post('/auth/login', user);
-            setAuthHeader(data.token);
+            token.set(data.token);
             return data;
         } catch (e) {
             Notiflix.Notify.failure('Please change your email ore password and try again');
@@ -49,7 +67,7 @@ export const logout = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             await axios.delete('/user/logout');
-            clearAuthHeader();
+            token.unset();
         } catch (e) {
             if (e instanceof AxiosError) {
                 return thunkAPI.rejectWithValue(e.response?.data.message);
@@ -63,12 +81,24 @@ export const fetchingCurrentUser = createAsyncThunk<IUserState, undefined, { rej
         const state = thunkAPI.getState() as IAppState;
         const persistedToken = state.auth.token;
 
-        if (persistedToken) {
-            setAuthHeader(persistedToken);
-        }
         try {
-            const { data } = await axios.get('/user/current');
-            return data;
+            if (persistedToken !== null && token.isValid(persistedToken)) {
+                try {
+                    const { data } = await axios.post('/auth/refresh-token', {
+                        refreshToken: persistedToken,
+                    });
+
+                    const newAccessToken = data.accessToken;
+                    token.set(newAccessToken);
+
+                    const userDataResponse = await axios.get('/user/current');
+                    return userDataResponse.data;
+                } catch (e) {
+                    if (e instanceof AxiosError) {
+                        return thunkAPI.rejectWithValue(e.response?.data.message);
+                    }
+                }
+            }
         } catch (e) {
             if (e instanceof AxiosError) {
                 return thunkAPI.rejectWithValue(e.response?.data.message);
